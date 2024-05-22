@@ -376,6 +376,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">古代エジプトのピラミッドは、昔の川辺や当時の水路沿いに位置していた</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etopo">ETOPOデータでカイロ近郊の標高データを眺めてみよう</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">過去の水辺に吹く風を感じたい</a></li>
 </ul>
             </nav>
         </div>
@@ -400,7 +401,7 @@ document.write(`
 </section>
 <section id="etopo">
 <h2>ETOPOデータでカイロ近郊の標高データを眺めてみよう<a class="headerlink" href="#etopo" title="Permalink to this heading">#</a></h2>
-<p><a href="https://amzn.to/4atSWTx">Software Design誌2024年6月号</a>に書いた、「人類の歩みを眺めるために，過去の世界に行ってみる〜昭和初期から最終氷期まで，時代の水辺にダイブする〜」の手順・コードで、ETOPOデータでカイロ近郊の標高データを眺めてみることにします。</p>
+<p><a class="reference external" href="https://amzn.to/4atSWTx">Software Design誌2024年6月号</a>に書いた、「人類の歩みを眺めるために，過去の世界に行ってみる〜昭和初期から最終氷期まで，時代の水辺にダイブする〜」の手順・コードで、ETOPOデータでカイロ近郊の標高データを眺めてみることにします。</p>
 <p>まず始めに、ETOPOデータをダウンロードします。
 <a class="reference external" href="https://www.ncei.noaa.gov/products/etopo-global-relief-model">ETOPO Global Relief Model</a>の<a class="reference external" href="https://www.ncei.noaa.gov/maps/grid-extract/">Grid Extract</a>から、所望の場所のデータを手に入れましょう。
 <a class="reference external" href="https://www.ncei.noaa.gov/maps/grid-extract/">Grid Extract</a>は、</p>
@@ -419,12 +420,12 @@ Download Dataボタンを押せば、GeoTIFFがexportImage.tiffという名前�
 <span class="kn">from</span> <span class="nn">osgeo</span> <span class="kn">import</span> <span class="n">gdal</span> <span class="c1"># conda install conda-forge::gdal</span>
 <span class="n">gdal</span><span class="o">.</span><span class="n">UseExceptions</span><span class="p">()</span>
 
-<span class="c1"># GeoTIFFを読み込み、指定した高さを基準に地図を描く</span>
+<span class="c1"># GeoTIFFを読み込み、指定した高さを基準に地図を描く関数を作る</span>
 <span class="c1"># 緯度経度での領域選択を行う部分はコメントアウトしています</span>
 <span class="k">def</span> <span class="nf">draw_map</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
-    <span class="n">ds</span> <span class="o">=</span> <span class="n">gdal</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-    <span class="n">elevation</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">ReadAsArray</span><span class="p">()</span> 
-    <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="n">elevation</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">ds</span><span class="o">=</span><span class="n">gdal</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">elevation</span><span class="o">=</span><span class="n">ds</span><span class="o">.</span><span class="n">ReadAsArray</span><span class="p">()</span> 
+    <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">elevation</span><span class="o">.</span><span class="n">shape</span>
     <span class="c1">#x0, dx, dxdy, y0, dydx, dy = ds.GetGeoTransform()</span>
     <span class="c1">#x1 = x0 + dx * ncols</span>
     <span class="c1">#y1 = y0 + dy * nrows</span>
@@ -433,6 +434,7 @@ Download Dataボタンを押せば、GeoTIFFがexportImage.tiffという名前�
                <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gist_earth&#39;</span><span class="p">)</span> <span class="c1">#, extent=[x0, x1, y1, y0])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
+<span class="c1"># ダウンロードしたETOPOデータを描画する</span>
 <span class="n">file</span><span class="o">=</span><span class="s1">&#39;day_240521_gdal_pyramid_exportImage.tiff&#39;</span> <span class="c1"># 元ファイル名はexportImage.tiff</span>
 <span class="n">height</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">draw_map</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
@@ -443,6 +445,12 @@ Download Dataボタンを押せば、GeoTIFFがexportImage.tiffという名前�
 <img alt="./-images/4ef1886dc53376fb530c90ae36d0f3429ec9cd22099b2c42fc1a0eaf0dc8876e.png" src="./-images/4ef1886dc53376fb530c90ae36d0f3429ec9cd22099b2c42fc1a0eaf0dc8876e.png" />
 </div>
 </div>
+</section>
+<section id="id3">
+<h2>過去の水辺に吹く風を感じたい<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>地形を可視化してみると、古代エジプトのピラミッド群は、ナイル川がさまざまに流れていた流域で、その丘上に位置していたように見えます。
+それはちょうど、日本最大の古墳である仁徳天皇陵（大仙陵古墳）を含む百舌鳥（もず）古墳群が、大阪の上町台地上に並んでいることと似ています。
+エジプトの水辺、少し小高い場所に並ぶピラミッドを眺めると、人類の歴史を感じることができるかもしれません。</p>
 </section>
 </section>
 
@@ -503,6 +511,7 @@ Download Dataボタンを押せば、GeoTIFFがexportImage.tiffという名前�
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">古代エジプトのピラミッドは、昔の川辺や当時の水路沿いに位置していた</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#etopo">ETOPOデータでカイロ近郊の標高データを眺めてみよう</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">過去の水辺に吹く風を感じたい</a></li>
 </ul>
   </nav></div>
 
