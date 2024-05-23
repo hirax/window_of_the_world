@@ -181,6 +181,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">ナイル水辺の「古代エジプトのピラミッド」を眺めに行こう。('24.05.21)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day_240522_imageio_kyoto.html">京都という斜面、流れる水路の流れを眺めてみよう。('24.05.22)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240523_numpy_vision.html">自分の網膜上の錐体分布を実感してみる('24.05.23)</a></li>
 </ul>
 
     </div>
@@ -394,12 +395,18 @@ document.write(`
 <h1>ナイル水辺の「古代エジプトのピラミッド」を眺めに行こう。('24.05.21)<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="id2">
 <h2>古代エジプトのピラミッドは、昔の川辺や当時の水路沿いに位置していた<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
-<p>「古代エジプトのピラミッドは、昔の川辺や当時の水路沿いに位置していた」という<a class="reference external" href="https://hackaday.com/2024/05/19/rediscovering-the-nile-the-ancient-river-that-was-once-overlooked-by-the-egyptian-pyramids/">研究</a>が、ノースカロライナ大学ウィルミントン校などの研究グロープから報告されました(<a class="reference external" href="https://www.nature.com/articles/s43247-024-01379-7">論文PDF</a>)。</p>
-<p>今から約1万年前に最終氷期が終わります。
-そして、現在から約6000年前、エジプトでピラミッドが作られます。
+<p>「古代エジプトのピラミッドは、昔の川辺や当時の水路沿いに位置していた」という<a class="reference external" href="https://hackaday.com/2024/05/19/rediscovering-the-nile-the-ancient-river-that-was-once-overlooked-by-the-egyptian-pyramids/">研究</a>が、ノースカロライナ大学ウィルミントン校などの研究グロープから報告されました(<a class="reference external" href="https://www.nature.com/articles/s43247-024-01379-7">論文PDF</a>)。
+報告された内容の、結論部分を示すとこうなります。</p>
+<p>今から約1万年前に最終氷期が終わり、その後、現在から約6000年前に、エジプトでピラミッドが作られます。
 その頃のエジプトはアフリカ湿潤期を迎えていました。
 雨量が多く、ナイル川の川幅は広く、たくさんの支流・水路がありました。
-そんな水辺沿いにピラミッドは作られていたというのです。</p>
+そんな水辺沿いに、ピラミッドは作られていたというのです。</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="_images/day_240521_gdal_pyramid_egypt-pyramida.jpg"><img alt="_images/day_240521_gdal_pyramid_egypt-pyramida.jpg" src="_images/day_240521_gdal_pyramid_egypt-pyramida.jpg" style="height: 6cm;" /></a>
+<figcaption>
+<p><span class="caption-number">図 1 </span><span class="caption-text">エジプトのピラミッド</span><a class="headerlink" href="#id4" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="etopo">
 <h2>ETOPOデータでカイロ近郊の標高データを眺めてみよう<a class="headerlink" href="#etopo" title="Permalink to this heading">#</a></h2>
@@ -437,7 +444,7 @@ Download Dataボタンを押せば、GeoTIFFがexportImage.tiffという名前�
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># ダウンロードしたETOPOデータを描画する</span>
-<span class="n">file</span><span class="o">=</span><span class="s1">&#39;day_240521_gdal_pyramid_exportImage.tiff&#39;</span> <span class="c1"># 元ファイル名はexportImage.tiff</span>
+<span class="n">file</span><span class="o">=</span><span class="s1">&#39;data/day_240521_gdal_pyramid_exportImage.tiff&#39;</span> <span class="c1"># 元ファイル名はexportImage.tiff</span>
 <span class="n">height</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">draw_map</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
 </pre></div>

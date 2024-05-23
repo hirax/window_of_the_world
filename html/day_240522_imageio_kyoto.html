@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'day_240522_imageio_kyoto';</script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="自分の網膜上の錐体分布を実感してみる(&#39;24.05.23)" href="day_240523_numpy_vision.html" />
     <link rel="prev" title="ナイル水辺の「古代エジプトのピラミッド」を眺めに行こう。(&#39;24.05.21)" href="day_240521_gdal_pyramid.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
@@ -180,6 +181,7 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="day_240521_gdal_pyramid.html">ナイル水辺の「古代エジプトのピラミッド」を眺めに行こう。('24.05.21)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">京都という斜面、流れる水路の流れを眺めてみよう。('24.05.22)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240523_numpy_vision.html">自分の網膜上の錐体分布を実感してみる('24.05.23)</a></li>
 </ul>
 
     </div>
@@ -465,13 +467,13 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 地図画像と写真画像(2048, 2048, 4)を読む</span>
 <span class="c1"># 地図画像</span>
-<span class="n">texture_map</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;day_240522_imageio_kyoto_texture.png&#39;</span><span class="p">)</span>
+<span class="n">texture_map</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/day_240522_imageio_kyoto_texture.png&#39;</span><span class="p">)</span>
 <span class="c1"># 写真画像</span>
-<span class="n">texture_photo</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;day_240522_imageio_kyoto_texture-2.png&#39;</span><span class="p">)</span>
+<span class="n">texture_photo</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/day_240522_imageio_kyoto_texture-2.png&#39;</span><span class="p">)</span>
 <span class="c1"># 地図・写真を適当な比率で合成する</span>
 <span class="n">texture</span> <span class="o">=</span> <span class="p">(</span><span class="n">texture_map</span><span class="o">*</span><span class="mf">0.3</span><span class="o">+</span><span class="n">texture_photo</span><span class="o">*</span><span class="mf">0.7</span><span class="p">)</span><span class="o">/</span><span class="mi">255</span> 
 <span class="c1"># 標高情報（CSVファイル）を読み込む</span>
-<span class="n">dem</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;day_240522_imageio_kyoto_dem.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">dem</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data/day_240522_imageio_kyoto_dem.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 <span class="n">dem_size</span> <span class="o">=</span> <span class="mi">257</span>
 <span class="n">dem</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">dem</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">dem_size</span><span class="p">,</span><span class="n">dem_size</span><span class="p">])</span>
 
@@ -494,6 +496,12 @@ document.write(`
 <p>京都の街並みを散策する時は、こんな3D標高地図を頭に浮かべて歩いてみると、とても面白いものです。
 たとえば、北から南に下る斜度が割とあるのにも関わらず、琵琶湖から蹴上経由で白川にグルリと向かう疎水(いわゆる哲学の道沿いなど)は、北上して流れています。
 そんな流れの向きを見ると、疎水の工事設計に興味を感じたりするのではないでしょうか。</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="_images/day_240522_imageio_kyoto_sosui.jpg"><img alt="_images/day_240522_imageio_kyoto_sosui.jpg" src="_images/day_240522_imageio_kyoto_sosui.jpg" style="height: 6cm;" /></a>
+<figcaption>
+<p><span class="caption-number">図 2 </span><span class="caption-text">京都の疎水</span><a class="headerlink" href="#id8" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
@@ -535,6 +543,15 @@ document.write(`
         <p class="prev-next-subtitle">前へ</p>
         <p class="prev-next-title">ナイル水辺の「古代エジプトのピラミッド」を眺めに行こう。('24.05.21)</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="day_240523_numpy_vision.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">自分の網膜上の錐体分布を実感してみる('24.05.23)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
