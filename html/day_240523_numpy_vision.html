@@ -379,6 +379,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">視線の先に移動する!?不思議な黒点</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">細かなものは、眺めている場所でしか見えない</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">注視している場所しか「見えない」ことを実感する</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">自分の視覚センサー特性を調べてみよう</a></li>
 </ul>
             </nav>
         </div>
@@ -457,10 +458,10 @@ document.write(`
 それ以外の場所では、錐体の数はとても少なくなり、ほとんどが桿体になります。
 それはつまり、明るいところでの「視力」は、目の中心部だけは良いけれど、それ以外の場所は「ほとんどボケてしか見えない」ということになります。
 だから、視線の先に移動する不思議な黒点が生じます。</p>
-<figure class="align-default" id="id5">
+<figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="_images/day_240523_numpy_vision_Distribution_of_Cones_and_Rods_on_Human_Retina.png"><img alt="_images/day_240523_numpy_vision_Distribution_of_Cones_and_Rods_on_Human_Retina.png" src="_images/day_240523_numpy_vision_Distribution_of_Cones_and_Rods_on_Human_Retina.png" style="height: 10cm;" /></a>
 <figcaption>
-<p><span class="caption-number">図 3 </span><span class="caption-text">網膜上の錐体と桿体(Rod)の分布</span><a class="headerlink" href="#id5" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-number">図 3 </span><span class="caption-text">網膜上の錐体と桿体(Rod)の分布 (by Jochen Burghardt CC BY-SA 3.0)</span><a class="headerlink" href="#id6" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -499,10 +500,10 @@ document.write(`
 <p>錐体がどのように分布するかは、人それぞれ千差万別なので、これはあくまで一例にすぎませんが、左がわりと平均的な特性例です。
 ちなみに、右側は赤と緑を識別しにくいタイプの色覚特性の例になります。</p>
 <p>この図を眺めると「赤色・緑色・青色ごとに、ものを見分けることができる解像度は違いそう」とか「青色の光センサーは中心部に少ないから、青色は眺めているところの視力は意外に低いかもしれない」といったことに気づくはずです。</p>
-<figure class="align-default" id="id6">
+<figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="_images/day_240523_numpy_vision_ConeMosaics.jpg"><img alt="_images/day_240523_numpy_vision_ConeMosaics.jpg" src="_images/day_240523_numpy_vision_ConeMosaics.jpg" style="height: 8cm;" /></a>
 <figcaption>
-<p><span class="caption-number">図 4 </span><span class="caption-text">網膜中央の錐体（左右は色覚特性が異なる例）</span><a class="headerlink" href="#id6" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-number">図 4 </span><span class="caption-text">網膜中央の錐体（左右は色覚特性が異なる例）(by Mark Fairchild CC BY-SA 3.0)</span><a class="headerlink" href="#id7" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
 <p>そこで、赤色・緑色・青色ごとに、注視している部分とそれ以外の周辺領域の「視力の違い」を確認してみましょう。
@@ -573,13 +574,17 @@ document.write(`
 <img alt="_images/76b0b00deae74a0e1c38e8f7c0ed665b1dc816affc99e524186fe1051e1206f8.png" src="_images/76b0b00deae74a0e1c38e8f7c0ed665b1dc816affc99e524186fe1051e1206f8.png" />
 </div>
 </div>
-<p>どうでしょうか？</p>
-<p>人によって、錐体分布は千差万別なので、それぞれの錐体分布個性に応じた見え方となったことでしょう。
-たとえば、</p>
+</section>
+<section id="id5">
+<h2>自分の視覚センサー特性を調べてみよう<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>人によって、錐体分布は千差万別です。
+当然、赤色・緑色・青色の斜線パターンの見え方も、それぞれの錐体分布個性に応じた見え方となったことでしょう。</p>
+<p>もしかしたら、</p>
 <ul class="simple">
 <li><p>赤色と緑色では注視している部分だけ斜線が見えて、青色では注視している部分は逆にノッペリと見えた</p></li>
 </ul>
-<p>という人もいれば、そうでない人もいるはずです。</p>
+<p>という人もいるかもしれません。
+もちろん、それとは違う見え方をした人もいることでしょう。</p>
 <p>さまざまな模様を作り、自分の視覚がそれをどう認識するかを調べ、自分の目が備えている光センサーの分布や特性を眺めてみると面白いかもしれません。</p>
 </section>
 </section>
@@ -642,6 +647,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">視線の先に移動する!?不思議な黒点</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">細かなものは、眺めている場所でしか見えない</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">注視している場所しか「見えない」ことを実感する</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">自分の視覚センサー特性を調べてみよう</a></li>
 </ul>
   </nav></div>
 
@@ -656,7 +662,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-著者 Jun Hirabayashi
+著者 平林 純(Jun Hirabayashi)  twitter @hirax
 </p>
 
   </div>
