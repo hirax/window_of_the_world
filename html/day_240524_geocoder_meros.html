@@ -431,13 +431,14 @@ document.write(`
 
 <span class="c1"># 緯度経度を取得する</span>
 <span class="c1"># 実際に取得する時</span>
-<span class="c1">#siracusa=geocoder.osm(place1, timeout=5.0).latlng</span>
-<span class="c1">#time.sleep(3)</span>
-<span class="c1">#selinunte=geocoder.osm(place2, timeout=5.0).latlng</span>
+<span class="n">ua</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;sample for python&quot;</span><span class="p">}</span>
+<span class="n">siracusa</span><span class="o">=</span><span class="n">geocoder</span><span class="o">.</span><span class="n">osm</span><span class="p">(</span><span class="n">place1</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">ua</span><span class="p">)</span><span class="o">.</span><span class="n">latlng</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">selinunte</span><span class="o">=</span><span class="n">geocoder</span><span class="o">.</span><span class="n">osm</span><span class="p">(</span><span class="n">place2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">ua</span><span class="p">)</span><span class="o">.</span><span class="n">latlng</span>
 
 <span class="c1">#jupyter{book}ビルド用</span>
-<span class="n">siracusa</span><span class="o">=</span><span class="p">[</span><span class="mf">37.075474</span><span class="p">,</span> <span class="mf">15.286586</span><span class="p">]</span>
-<span class="n">selinunte</span><span class="o">=</span><span class="p">[</span><span class="mf">37.583</span><span class="p">,</span> <span class="mf">12.817</span><span class="p">]</span>
+<span class="c1">#siracusa=[37.075474, 15.286586]</span>
+<span class="c1">#selinunte=[37.583, 12.817]</span>
 
 <span class="c1"># 確認表示</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">place1</span><span class="p">,</span> <span class="n">siracusa</span><span class="p">)</span>
@@ -447,8 +448,8 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Siracusa,Italy [37.075474, 15.286586]
-Selinunte,Italy [37.583, 12.817]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Siracusa,Italy [37.0646139, 15.2907196]
+Selinunte,Italy [37.5884265, 12.82465071085111]
 </pre></div>
 </div>
 </div>
@@ -511,7 +512,7 @@ Selinunte,Italy [37.583, 12.817]
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_54589b5f7b2c76a5ff7a235d03a6604e {
+                #map_5a94978901755ecf19b0cf67d71fbe7e {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -525,16 +526,16 @@ Selinunte,Italy [37.583, 12.817]
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_54589b5f7b2c76a5ff7a235d03a6604e&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_5a94978901755ecf19b0cf67d71fbe7e&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_54589b5f7b2c76a5ff7a235d03a6604e = L.map(
-                &quot;map_54589b5f7b2c76a5ff7a235d03a6604e&quot;,
+            var map_5a94978901755ecf19b0cf67d71fbe7e = L.map(
+                &quot;map_5a94978901755ecf19b0cf67d71fbe7e&quot;,
                 {
-                    center: [37.075474, 15.286586],
+                    center: [37.0646139, 15.2907196],
                     crs: L.CRS.EPSG3857,
                     zoom: 6,
                     zoomControl: true,
@@ -546,37 +547,37 @@ Selinunte,Italy [37.583, 12.817]
 
         
     
-            var tile_layer_ab09a8dbe0822440dab16ed5479bc5e8 = L.tileLayer(
+            var tile_layer_ffb846883ab4a0a0a47dbd3f90737313 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
         
     
-            tile_layer_ab09a8dbe0822440dab16ed5479bc5e8.addTo(map_54589b5f7b2c76a5ff7a235d03a6604e);
+            tile_layer_ffb846883ab4a0a0a47dbd3f90737313.addTo(map_5a94978901755ecf19b0cf67d71fbe7e);
         
     
-            var marker_fcca56d797a3bfe540b4500c4d56ae33 = L.marker(
-                [37.075474, 15.286586],
+            var marker_8e908e8a0831d5c9e89ea3552ea361f6 = L.marker(
+                [37.0646139, 15.2907196],
                 {}
-            ).addTo(map_54589b5f7b2c76a5ff7a235d03a6604e);
+            ).addTo(map_5a94978901755ecf19b0cf67d71fbe7e);
         
     
-            var icon_3ababa752d29674e1379b4ce14a2f19e = L.AwesomeMarkers.icon(
+            var icon_e9ba2e898f10a4062844e7ee13946680 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;black&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_fcca56d797a3bfe540b4500c4d56ae33.setIcon(icon_3ababa752d29674e1379b4ce14a2f19e);
+            marker_8e908e8a0831d5c9e89ea3552ea361f6.setIcon(icon_e9ba2e898f10a4062844e7ee13946680);
         
     
-            var marker_cff7b25125a04fe23424265f4e364ed0 = L.marker(
-                [37.583, 12.817],
+            var marker_0c1bc26f10beff548db90ec740ae67a8 = L.marker(
+                [37.5884265, 12.82465071085111],
                 {}
-            ).addTo(map_54589b5f7b2c76a5ff7a235d03a6604e);
+            ).addTo(map_5a94978901755ecf19b0cf67d71fbe7e);
         
     
-            var icon_83dc97df260312a3c47ed9d16cf65c0e = L.AwesomeMarkers.icon(
+            var icon_04ffbca461101e67004a909c01bb2a8d = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_cff7b25125a04fe23424265f4e364ed0.setIcon(icon_83dc97df260312a3c47ed9d16cf65c0e);
+            marker_0c1bc26f10beff548db90ec740ae67a8.setIcon(icon_04ffbca461101e67004a909c01bb2a8d);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -600,7 +601,7 @@ Selinunte,Italy [37.583, 12.817]
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>225.99443613592337 (km)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>226.1579735777327 (km)
 </pre></div>
 </div>
 </div>
@@ -643,8 +644,8 @@ Selinunte,Italy [37.583, 12.817]
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>日の出時間： 2024/6/22 03:02:32
-日暮れ時間： 2024/6/21 16:04:53
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>日の出時間： 2024/6/22 03:02:34
+日暮れ時間： 2024/6/21 16:04:56
 ＋ 2 時間 28 分
 当日日暮れまでだった場合 53.1764705882353 km/h
 三日後の日暮れだった場合 5.614906832298137 km/h
