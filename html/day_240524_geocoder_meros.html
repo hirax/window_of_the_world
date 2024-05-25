@@ -271,6 +271,24 @@
 </a>
 </li>
       
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
   </ul>
 </div>
 
@@ -564,7 +582,7 @@ Selinunte,Italy [37.5884265, 12.82465071085111]
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_db1cd3a50044eb4476d23cf0aba7c2a7 {
+                #map_f092364b0657060a4f61e09e0401ecbd {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -578,14 +596,14 @@ Selinunte,Italy [37.5884265, 12.82465071085111]
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_db1cd3a50044eb4476d23cf0aba7c2a7&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_f092364b0657060a4f61e09e0401ecbd&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_db1cd3a50044eb4476d23cf0aba7c2a7 = L.map(
-                &quot;map_db1cd3a50044eb4476d23cf0aba7c2a7&quot;,
+            var map_f092364b0657060a4f61e09e0401ecbd = L.map(
+                &quot;map_f092364b0657060a4f61e09e0401ecbd&quot;,
                 {
                     center: [37.0646139, 15.2907196],
                     crs: L.CRS.EPSG3857,
@@ -599,37 +617,37 @@ Selinunte,Italy [37.5884265, 12.82465071085111]
 
         
     
-            var tile_layer_938e7f04c806774190780d14383f0006 = L.tileLayer(
+            var tile_layer_e272711816b12ad28bf887ac7216b712 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
         
     
-            tile_layer_938e7f04c806774190780d14383f0006.addTo(map_db1cd3a50044eb4476d23cf0aba7c2a7);
+            tile_layer_e272711816b12ad28bf887ac7216b712.addTo(map_f092364b0657060a4f61e09e0401ecbd);
         
     
-            var marker_a401e4701ec627a3eab4da4b27d95027 = L.marker(
+            var marker_ad3002d8b2c52b9e63d39b141a14be9d = L.marker(
                 [37.0646139, 15.2907196],
                 {}
-            ).addTo(map_db1cd3a50044eb4476d23cf0aba7c2a7);
+            ).addTo(map_f092364b0657060a4f61e09e0401ecbd);
         
     
-            var icon_92c3072cb2b08b286670232a8d792637 = L.AwesomeMarkers.icon(
+            var icon_acd4b8ef44aedfa61d05270cbf52fad7 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;black&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_a401e4701ec627a3eab4da4b27d95027.setIcon(icon_92c3072cb2b08b286670232a8d792637);
+            marker_ad3002d8b2c52b9e63d39b141a14be9d.setIcon(icon_acd4b8ef44aedfa61d05270cbf52fad7);
         
     
-            var marker_3f2222685d3ec8e49a1a608f3fe58ff2 = L.marker(
+            var marker_1364323a3e6ca94ec89de6672e097ac6 = L.marker(
                 [37.5884265, 12.82465071085111],
                 {}
-            ).addTo(map_db1cd3a50044eb4476d23cf0aba7c2a7);
+            ).addTo(map_f092364b0657060a4f61e09e0401ecbd);
         
     
-            var icon_ca15ee7e970a35fc53d8e7fec5151ee5 = L.AwesomeMarkers.icon(
+            var icon_6fcc080474a8233d2b5fc63f91a8cefb = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_3f2222685d3ec8e49a1a608f3fe58ff2.setIcon(icon_ca15ee7e970a35fc53d8e7fec5151ee5);
+            marker_1364323a3e6ca94ec89de6672e097ac6.setIcon(icon_6fcc080474a8233d2b5fc63f91a8cefb);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -721,8 +739,8 @@ Selinunte,Italy [37.5884265, 12.82465071085111]
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "hirax/wow",
+            ref: "main",
         },
         codeMirrorConfig: {
             theme: "abcdef",
