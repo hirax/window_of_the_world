@@ -62,6 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'day_240524_geocoder_meros';</script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="ゾディアック事件の暗号Z340でメッセージを作る(&#39;24.05.25)" href="day_240525_code_zodiac.html" />
     <link rel="prev" title="自分の網膜上の錐体分布を実感してみる。(&#39;24.05.23)" href="day_240523_numpy_vision.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
@@ -182,6 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="day_240522_imageio_kyoto.html">京都という斜面、流れる水路の流れを眺めてみよう。('24.05.22)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day_240523_numpy_vision.html">自分の網膜上の錐体分布を実感してみる。('24.05.23)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">史実を辿る「走れメロス」計算 ♯1 ('24.05.24)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240525_code_zodiac.html">ゾディアック事件の暗号Z340でメッセージを作る('24.05.25)</a></li>
 </ul>
 
     </div>
@@ -513,7 +515,7 @@ Selinunte,Italy [37.5884265, 12.82465071085111]
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_5b53c6946c3a1cd7495e68b474c62a5b {
+                #map_ae099a26e77dc08be8f495cc404865cb {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -527,14 +529,14 @@ Selinunte,Italy [37.5884265, 12.82465071085111]
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_5b53c6946c3a1cd7495e68b474c62a5b&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_ae099a26e77dc08be8f495cc404865cb&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_5b53c6946c3a1cd7495e68b474c62a5b = L.map(
-                &quot;map_5b53c6946c3a1cd7495e68b474c62a5b&quot;,
+            var map_ae099a26e77dc08be8f495cc404865cb = L.map(
+                &quot;map_ae099a26e77dc08be8f495cc404865cb&quot;,
                 {
                     center: [37.0646139, 15.2907196],
                     crs: L.CRS.EPSG3857,
@@ -548,37 +550,37 @@ Selinunte,Italy [37.5884265, 12.82465071085111]
 
         
     
-            var tile_layer_3fc52e718a0ebfc7274806c4caf22f5f = L.tileLayer(
+            var tile_layer_1636be69f1a9e9e1f1a6bd5fbba1a3d4 = L.tileLayer(
                 &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
                 {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
         
     
-            tile_layer_3fc52e718a0ebfc7274806c4caf22f5f.addTo(map_5b53c6946c3a1cd7495e68b474c62a5b);
+            tile_layer_1636be69f1a9e9e1f1a6bd5fbba1a3d4.addTo(map_ae099a26e77dc08be8f495cc404865cb);
         
     
-            var marker_fcaf088fe21a21c1d3b0313e46b8670c = L.marker(
+            var marker_321a319ed3fe2a987a614df512aa8eed = L.marker(
                 [37.0646139, 15.2907196],
                 {}
-            ).addTo(map_5b53c6946c3a1cd7495e68b474c62a5b);
+            ).addTo(map_ae099a26e77dc08be8f495cc404865cb);
         
     
-            var icon_6ac447598511f47102f96d50cca4fdeb = L.AwesomeMarkers.icon(
+            var icon_2c31d36054344493541c8fee809aed87 = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;black&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_fcaf088fe21a21c1d3b0313e46b8670c.setIcon(icon_6ac447598511f47102f96d50cca4fdeb);
+            marker_321a319ed3fe2a987a614df512aa8eed.setIcon(icon_2c31d36054344493541c8fee809aed87);
         
     
-            var marker_b59cc80cc04701f8ce8dbcd2b66b2317 = L.marker(
+            var marker_b882aa030e7d0ef408e9f348bc8617a0 = L.marker(
                 [37.5884265, 12.82465071085111],
                 {}
-            ).addTo(map_5b53c6946c3a1cd7495e68b474c62a5b);
+            ).addTo(map_ae099a26e77dc08be8f495cc404865cb);
         
     
-            var icon_a8525876eb70811445efa44864fac1ae = L.AwesomeMarkers.icon(
+            var icon_ee021b80206caeccdeb83671b61d8e9f = L.AwesomeMarkers.icon(
                 {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
             );
-            marker_b59cc80cc04701f8ce8dbcd2b66b2317.setIcon(icon_a8525876eb70811445efa44864fac1ae);
+            marker_b882aa030e7d0ef408e9f348bc8617a0.setIcon(icon_ee021b80206caeccdeb83671b61d8e9f);
         
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
@@ -704,6 +706,15 @@ Selinunte,Italy [37.5884265, 12.82465071085111]
         <p class="prev-next-subtitle">前へ</p>
         <p class="prev-next-title">自分の網膜上の錐体分布を実感してみる。('24.05.23)</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="day_240525_code_zodiac.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">ゾディアック事件の暗号Z340でメッセージを作る('24.05.25)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
