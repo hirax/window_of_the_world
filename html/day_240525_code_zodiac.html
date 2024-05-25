@@ -394,17 +394,19 @@ document.write(`
 <h1>ゾディアック事件の暗号Z340でメッセージを作る('24.05.25)<a class="headerlink" href="#z340-24-05-25" title="Permalink to this heading">#</a></h1>
 <p>1968年から1974年にかけて、米国のカリフォルニア州サンフランシスコ市内で、連続殺人事件が起きた。
 犯人はゾディアック(Zodiac)と名乗り、警察やマスコミへ暗号で書かれたメッセージを送りつけ、この事件はゾディアック事件と呼ばれた。</p>
-<p>1969年11月8日、ゾディアックは葉書に暗号メッセージを書いて、送りつけてきた。
-この暗号は、340文字の記号で書かれていたことから「Z340」と呼ばれている。
-下の画像がZ340暗号だ。</p>
+<p>1969年11月8日、ゾディアックは暗号メッセージを葉書に書いて送りつけてきた。
+340文字の記号で書かれていたことから「Z340」と呼ばれている暗号である。
+それが下の画像だ。</p>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="_images/day_240525_code_zodiac_z340.jpg"><img alt="_images/day_240525_code_zodiac_z340.jpg" src="_images/day_240525_code_zodiac_z340.jpg" style="height: 10cm;" /></a>
 <figcaption>
 <p><span class="caption-number">図 6 </span><span class="caption-text">ゾディアック暗号Z340</span><a class="headerlink" href="#id2" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
-<p>半世紀以上もの間、Z340を解読しようとする試みはすべて失敗に終わった。
-しかし、<a class="reference external" href="https://blog.wolfram.com/2021/03/24/the-solution-of-the-zodiac-killers-340-character-cipher/">Wolfram Mathematicaを道具にして</a>、2020年12月5日、Z340はついに解読された。</p>
+<p>半世紀以上もの間、Z340を解読しようとする試みはすべて失敗に終わってきた。
+しかし、2020年12月5日、<a class="reference external" href="https://blog.wolfram.com/2021/03/24/the-solution-of-the-zodiac-killers-340-character-cipher/">Wolfram Mathematicaを道具にして</a>Z340はついに解読された。
+解読された内容が以下の文面だ。
+ちなみに、当時のサンフランシスコでの死刑は、ガス室での執行だった。</p>
 <p><a class="reference external" href="https://github.com/H0j3n/Zodiac-Z340/tree/main">Zodiac-Z340</a></p>
 <div class="admonition-z340 admonition">
 <p class="admonition-title">2020年に解読された暗号Z340</p>
@@ -412,10 +414,10 @@ document.write(`
 <p>テレビ番組で報道されている私でない私を捕まえようとしてるけど、それを楽しんでくれているといいね。
 私はガス室を恐れていない。なぜなら、ガス室は私を天国に送ってくれるから。他のみんなが何も持っていない場所でも、私のために働く奴隷がたくさんいる。みんな天国に着くと、死を恐れる。私は恐れない。私の新しい人生はパラダイスで楽なものになると知っているから。人生は死だ。</p>
 </div>
-<p>今日は、Z340暗号のルールにもとづき、平文（アルファベットのみで、空白やピリオドあるいはカンマなどは含まない）をエンコードする<a class="reference external" href="https://github.com/H0j3n/Zodiac-Z340/tree/main">Zodiac-Z340</a>を使って、Z340暗号でメッセージ画像を作ってみる。</p>
-<p>Zodiac-Z340レポジトリには、コード例と記号フォントが含まれていて、平文から暗号分や暗号文字画像を生成することができる。
-下記がコード例と実行例だ。
-ちなみに、平文の内容は「走れメロス」のストーリー解説である。</p>
+<p>今日は、Z340暗号のルールにもとづき、平文（アルファベットのみで、空白やピリオドあるいはカンマなどは含まない）をエンコードする<a class="reference external" href="https://github.com/H0j3n/Zodiac-Z340/tree/main">Zodiac-Z340</a>を使い、Z340暗号でメッセージ画像を作ってみようと思う。</p>
+<p>Zodiac-Z340は、コード例と記号フォントが含まれていて、平文から暗号分や暗号文字画像を生成することができる。下記がコードと実行例だ。
+ちなみに、暗号化している平文の内容は「走れメロス」のストーリーを英文で解説したものだ。
+その英文の空白やピリオド・カンマなどを削除した上で、先頭340文字からZ340暗号を生成させている。</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -569,7 +571,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/dd550215e1dafdb241f57f676f70379c382fff2cb12db92e7f7888a0d1652629.png" src="_images/dd550215e1dafdb241f57f676f70379c382fff2cb12db92e7f7888a0d1652629.png" />
+<img alt="_images/5757db28136fc7f9f947e1a3189801eb2961568f006ce1ddac1bad63f9a32cf7.png" src="_images/5757db28136fc7f9f947e1a3189801eb2961568f006ce1ddac1bad63f9a32cf7.png" />
 </div>
 </div>
 <section id="id1">
