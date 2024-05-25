@@ -476,7 +476,7 @@ document.write(`
 
 <span class="c1">#Function Dcode Symbol</span>
 <span class="k">def</span> <span class="nf">zodiac_cipher</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-	<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Please Enter this in Dcode!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+	<span class="c1">#print(&quot;\nPlease Enter this in Dcode!\n&quot;)</span>
 	<span class="n">strs</span> <span class="o">=</span><span class="s2">&quot;&quot;</span>
 	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">):</span>
         	<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">i</span><span class="p">:</span>
@@ -517,6 +517,32 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_text</span><span class="o">=</span><span class="s2">&quot;Melos is a naive young shepherd with a sense of justice. He lives in a land ruled by Dionysius, a tyrant king who has killed many people, including his family members, due to his solitude and distrust of people. When Melos hears about the King&#39;s deeds, he is outraged, and he decides to assassinate the King. He sneaks into the castle with a knife but is caught and arrested. Although Melos defiantly owns up to his plan to kill the King, he pleads with the cynical tyrant to postpone his execution for three days so that he can return home to arrange his younger sister&#39;s marriage. As collateral for his pledge to return, Melos offers his friend Selinuntius as a hostage, who would be executed in his stead should Melos not return in time. The King agrees to Melos&#39; conditions but threatens to kill him should he return moments too late. Melos insists that saving his own life is not his intention. Informed of the situation, Selinuntius readily agrees to the role that Melos assigned him without asking.&quot;</span>
 <span class="n">inputs</span><span class="o">=</span><span class="n">my_text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()[:</span><span class="mi">306</span><span class="p">]</span>
 
+<span class="c1">#print(&quot;\nBox 1 : &quot;,end=&quot;&quot;)</span>
+<span class="c1">#print(inputs[:153],&quot;\n&quot;)</span>
+<span class="n">box1</span> <span class="o">=</span> <span class="n">diagnol</span><span class="p">(</span><span class="n">inputs</span><span class="p">[:</span><span class="mi">153</span><span class="p">])</span>
+<span class="c1">#for i in box1.split(&quot;;&quot;):</span>
+<span class="c1">#        print(i)</span>
+<span class="n">dcode1</span> <span class="o">=</span> <span class="n">zodiac_cipher</span><span class="p">(</span><span class="n">box1</span><span class="p">)</span>
+<span class="c1">#print(dcode1)</span>
+<span class="n">fontchange1</span> <span class="o">=</span> <span class="n">font_change</span><span class="p">(</span><span class="n">dcode1</span><span class="p">)</span>
+
+<span class="c1">#print(&quot;\n\nBox 2 : &quot;,end=&quot;&quot;)</span>
+<span class="c1">#print(inputs[153:],&quot;\n&quot;)</span>
+<span class="n">box2</span> <span class="o">=</span> <span class="n">diagnol</span><span class="p">(</span><span class="n">inputs</span><span class="p">[</span><span class="mi">153</span><span class="p">:])</span>
+<span class="c1">#for i in box2.split(&quot;;&quot;):</span>
+<span class="c1">#	print(i)</span>
+<span class="n">dcode2</span> <span class="o">=</span> <span class="n">zodiac_cipher</span><span class="p">(</span><span class="n">box2</span><span class="p">)</span>
+<span class="c1">#print(dcode2)</span>
+<span class="n">fontchange2</span> <span class="o">=</span> <span class="n">font_change</span><span class="p">(</span><span class="n">dcode2</span><span class="p">)</span>
+<span class="c1">#print(&quot;\n[Full Dcode]\n&quot;)</span>
+<span class="c1">#print(&quot;Please Use it in here : https://www.dcode.fr/zodiac-killer-cipher\n&quot;)</span>
+<span class="n">fulldcode</span> <span class="o">=</span> <span class="n">dcode1</span> <span class="o">+</span> <span class="n">dcode2</span>
+<span class="c1">#print(fulldcode)</span>
+<span class="c1">#print(&quot;\n[Full Font Code]\n&quot;)</span>
+<span class="c1">#print(&quot;Please Use it in here : http://zodiackillerciphers.com/cipher-explorer/\n&quot;)</span>
+<span class="n">fullfontcode</span> <span class="o">=</span> <span class="n">fontchange1</span><span class="o">+</span><span class="n">fontchange2</span>
+<span class="c1">#print(fullfontcode)</span>
+
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># 暗号画像を生成する</span>
@@ -543,18 +569,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">img_pil</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">h</span><span class="o">=</span><span class="mi">100</span> <span class="c1"># 文字を描き始める最初の高さ</span>
-<span class="ne">---&gt; </span><span class="mi">15</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fullfontcode</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> 	<span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="mi">50</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">font</span> <span class="o">=</span> <span class="n">font</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> 	<span class="n">h</span> <span class="o">+=</span> <span class="mi">28</span>
-
-<span class="ne">NameError</span>: name &#39;fullfontcode&#39; is not defined
-</pre></div>
-</div>
+<img alt="_images/dd550215e1dafdb241f57f676f70379c382fff2cb12db92e7f7888a0d1652629.png" src="_images/dd550215e1dafdb241f57f676f70379c382fff2cb12db92e7f7888a0d1652629.png" />
 </div>
 </div>
 <section id="id1">
