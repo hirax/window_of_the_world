@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
     <style>
-        body { margin: 0; overflow: hidden; }
+        body { margin: 0; overflow: hidden; }vTextureSizeWvTextureSizeW
     </style>
 
     <script src="https://cyberjapandata.gsi.go.jp/3d/three.min.js"></script>
@@ -71,9 +71,9 @@ oGeo3DData = [
  {
   "properties": {
    "_markerType": "LineString",
-   "_opacity": 1,
-   "_color": "#3388ff",
-   "_weight": 3
+   "_opacity": 0.7,
+   "_color": "#0000ff",
+   "_weight": 30
   },
   "geometry": {
    "coordinates": [
@@ -840,7 +840,6 @@ oGeo3DData = [
 				oGeo3DData[i].properties._opacity = ( oGeo3DData[i].properties._opacity || oGeo3DData[i].properties._opacity == 0 ? oGeo3DData[i].properties._opacity : 0.5 );
 				var color = ( oGeo3DData[i].properties._color ? oGeo3DData[i].properties._color : 0x0000ff );
 				var weight = ( oGeo3DData[i].properties._weight ? oGeo3DData[i].properties._weight : 20 );
-				
 				
 				geometry.computeFaceNormals();
 				geometry.computeVertexNormals();
