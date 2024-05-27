@@ -814,7 +814,7 @@ oGeo3DData = [
 				var triangles = _draw3DGEODataPolygon( geometry, oGeo3DData[i].triangles, viewBox, oGeo3DData[i] );
 				oGeo3DData[i].properties._fillOpacity = ( oGeo3DData[i].properties._fillOpacity || oGeo3DData[i].properties._fillOpacity == 0 ? oGeo3DData[i].properties._fillOpacity : 0.2 );
 				var fillColor = oGeo3DData[i].properties._fillColor;
-				fillColor = ( fillColor ? fillColor : 0x0033ff );
+				fillColor = ( fillColor ? fillColor : 0x0000ff );
 				var material = new THREE.MeshBasicMaterial(
 					{color: fillColor, 
 						opacity: oGeo3DData[i].properties._fillOpacity, depthWrite:false,  transparent: true});
@@ -838,8 +838,8 @@ oGeo3DData = [
 				var geometry = new THREE.Geometry();
 				var points = _draw3DGEODataLineString( geometry, viewBox, oGeo3DData[i] );
 				oGeo3DData[i].properties._opacity = ( oGeo3DData[i].properties._opacity || oGeo3DData[i].properties._opacity == 0 ? oGeo3DData[i].properties._opacity : 0.5 );
-				var color = ( oGeo3DData[i].properties._color ? oGeo3DData[i].properties._color : 0x0033ff );
-				var weight = ( oGeo3DData[i].properties._weight ? oGeo3DData[i].properties._weight : 5 );
+				var color = ( oGeo3DData[i].properties._color ? oGeo3DData[i].properties._color : 0x0000ff );
+				var weight = ( oGeo3DData[i].properties._weight ? oGeo3DData[i].properties._weight : 20 );
 				
 				
 				geometry.computeFaceNormals();
@@ -886,7 +886,7 @@ oGeo3DData = [
 				
 				oGeo3DData[i].properties._opacity = ( oGeo3DData[i].properties._opacity || oGeo3DData[i].properties._opacity == 0 ? oGeo3DData[i].properties._opacity : 0.5 );
 				var color = ( oGeo3DData[i].properties._color ? oGeo3DData[i].properties._color : 0x0000ff );
-				var weight = ( oGeo3DData[i].properties._weight ? oGeo3DData[i].properties._weight : 50 );
+				var weight = ( oGeo3DData[i].properties._weight ? oGeo3DData[i].properties._weight : 5 );
 				var opacity = oGeo3DData[i].properties._opacity;
 				
 				
@@ -974,13 +974,13 @@ oGeo3DData = [
 				
 				oGeo3DData[i].properties._fillOpacity = ( oGeo3DData[i].properties._fillOpacity || oGeo3DData[i].properties._fillOpacity == 0 ? oGeo3DData[i].properties._fillOpacity : 0.2 );
 				var fillColor = oGeo3DData[i].properties._fillColor;
-				fillColor = ( fillColor ? fillColor : 0x0033ff );
+				fillColor = ( fillColor ? fillColor : 0x0000ff );
 				var fillOpacity = oGeo3DData[i].properties._fillOpacity;
 				
 				
 				oGeo3DData[i].properties._opacity = ( oGeo3DData[i].properties._opacity || oGeo3DData[i].properties._opacity == 0 ? oGeo3DData[i].properties._opacity : 0.5 );
-				var color = ( oGeo3DData[i].properties._color ? oGeo3DData[i].properties._color : 0x0033ff );
-				var weight = ( oGeo3DData[i].properties._weight ? oGeo3DData[i].properties._weight : 5 );
+				var color = ( oGeo3DData[i].properties._color ? oGeo3DData[i].properties._color : 0x0000ff );
+				var weight = ( oGeo3DData[i].properties._weight ? oGeo3DData[i].properties._weight : 50 );
 				var opacity = oGeo3DData[i].properties._opacity;
 				
 				
