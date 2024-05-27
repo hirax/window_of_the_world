@@ -415,7 +415,7 @@ oGeo3DData = [
         for(ny = 0; ny <= vMeshSizeH; ny++){
 	        for(nx = 0; nx <= vMeshSizeW; nx++){
                 nz = ny * (vMeshSizeW+1) + nx;
-			    oSceneMesh.geometry.vertices[nz].z = (vSceneMesh[nz]-1.0) * vSceneMeshZRate;
+			    oSceneMesh.geometry.vertices[nz].z = (vSceneMesh[nz]-0.0) * vSceneMeshZRate;
 		    }
 	    }
 
