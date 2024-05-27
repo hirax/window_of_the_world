@@ -845,7 +845,10 @@ oGeo3DData = [
 				geometry.computeVertexNormals();
 				
 				var mesh = new THREE.Line( geometry, new THREE.LineBasicMaterial( { 
-					color: color,linewidth:parseInt(weight), depthWrite:false,
+					color: color,
+					//linewidth:parseInt(weight),
+					linewidth:parseInt(50),
+					depthWrite:false,
 					opacity: oGeo3DData[i].properties._opacity,  transparent: true
 					} ) );
 			    if ( !oSceneGEODataMeshArr ) oSceneGEODataMeshArr = [];
