@@ -549,10 +549,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pythonのrandomで使われている内部状態： [2471035096 1405147048 2031218815 4098901080  205806112 2582446196
-  854700861  243325898 3139190641 1904395337 2270178029 3798981071
- 1497462176 1332397529 3249066718 1540741925 1893516934 1269469907
- 3033432254 2117439932]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pythonのrandomで使われている内部状態： [1684143820  313333343  438870459 3616976196 3202137415  809343932
+ 3099328567  678294452 2040378953 1441138958 3894781864  350134121
+  726418105 1670810524 3178258416  602975469 3195141979 4107438901
+ 2291607478  491564594]
 </pre></div>
 </div>
 </div>
@@ -565,7 +565,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>推定した内部状態 [2471035096, 1405147048, 2031218815, 4098901080, 205806112, 2582446196, 854700861, 243325898, 3139190641, 1904395337, 2270178029, 3798981071, 1497462176, 1332397529, 3249066718, 1540741925, 1893516934, 1269469907, 3033432254, 2117439932]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>推定した内部状態 [1684143820, 313333343, 438870459, 3616976196, 3202137415, 809343932, 3099328567, 678294452, 2040378953, 1441138958, 3894781864, 350134121, 726418105, 1670810524, 3178258416, 602975469, 3195141979, 4107438901, 2291607478, 491564594]
 </pre></div>
 </div>
 </div>
@@ -579,8 +579,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random.getrandbits(32) :  2125124147
-predictor.predict_getrandbits(32) 2125124147
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random.getrandbits(32) :  2104203435
+predictor.predict_getrandbits(32) 2104203435
 </pre></div>
 </div>
 </div>
@@ -588,10 +588,12 @@ predictor.predict_getrandbits(32) 2125124147
 </section>
 <section id="id5">
 <h2>見つけ出される最大のメルセンヌ素数は「天国に延びる階段」だ!?<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
-<p>そういえば、年を経て見つけ出されていく、最大のメルセンヌ素数を折れ線グラフで眺めると、これも「梯子（階段）」に見えてくる。
-メルセンヌがこのグラフを眺めたら、左下に位置する地上から、右上の先に天国までの段数を計算してくれるかもしれない。</p>
+<p>メルセンヌ、そして梯子とか漸化式とかいったことを眺めた後に、こんなグラフを眺める。
+これは、年を経るごとに発見されていく、最大のメルセンヌ素数の折れ線グラフだ。
+こんなグラフを眺めていると、これまた「梯子（階段）」に見えてくる。
+メルセンヌがこのグラフを眺めたら、左下に位置する地上から、右上の先に天国までの段数、理想を実現するまでに至る道のりを計算してくれるかもしれない。</p>
 <figure class="align-default" id="id8">
-<a class="reference internal image-reference" href="_images/day_240527_mercenne_Digits_in_largest_prime_found_as_a_function_of_time.svg.png"><img alt="_images/day_240527_mercenne_Digits_in_largest_prime_found_as_a_function_of_time.svg.png" src="_images/day_240527_mercenne_Digits_in_largest_prime_found_as_a_function_of_time.svg.png" style="height: 10cm;" /></a>
+<a class="reference internal image-reference" href="_images/day_240527_mercenne_Digits_in_largest_prime_found_as_a_function_of_time.svg.png"><img alt="_images/day_240527_mercenne_Digits_in_largest_prime_found_as_a_function_of_time.svg.png" src="_images/day_240527_mercenne_Digits_in_largest_prime_found_as_a_function_of_time.svg.png" style="height: 14cm;" /></a>
 <figcaption>
 <p><span class="caption-number">図 12 </span><span class="caption-text">年をおって発見される「最大のメルセンヌ素数」　Nicoguaro CC BY 4.0</span><a class="headerlink" href="#id8" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
