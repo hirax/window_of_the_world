@@ -501,7 +501,7 @@ document.write(`
 メルセンヌいわく、32という数字の重要性を踏まえてヤコブの梯子は32段であるはずだという。
 さらに、梯子の段ごとに関する意味なども書かれていた。</p>
 <p>それにしても、梯子の一段あたりの高さはわからないが、天国は地上からわずか32段で昇ることができる場所にあるのだろうか？
-それとも、天使は小さくて可愛いという認識が間違っていて、天使は実は超大型の巨人なのだったりするのだろうか……。</p>
+それとも、天使は小さくて可愛いという認識が実は間違っていて、天使の本当の姿は超大型の巨人なのだったりするのだろうか……。</p>
 </section>
 <section id="id4">
 <h2>メルセンヌ素数やメルセンヌ音階にも「ヤコブの梯子」の影響が!?<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
@@ -511,8 +511,8 @@ document.write(`
 <section id="bit624">
 <h2>32bit×624次元で表される「梯子式」のメルセンヌツイスタ<a class="headerlink" href="#bit624" title="Permalink to this heading">#</a></h2>
 <p>そういえば、Pythonの乱数関数は、メルセンヌ素数を使ったアルゴリズム（メルセンヌ・ツイスタ）で乱数を生成する。
-32bit×624次元の状態と、梯子ならぬ漸化式を使って、疑似乱数が作り出される。
-「32という数字」とか「梯子ならぬ漸化式」とか、いかにもメルセンヌ本人が好きそうなアルゴリズムである。
+32bit×624次元の状態と、梯子ならぬ漸化式を使って、疑似乱数が作り出す。
+「32という数字」であったり、「梯子ならぬ漸化式」を使った処理をするというあたり、いかにもメルセンヌ本人が好きそうなアルゴリズムである。
 そこで、「生成された624個の乱数から、624次元の内部状態を計算して、生成される乱数を予測する」ということを、ライブラリを使ってやってみる。</p>
 <p>まずは、 624個の乱数を眺めていくことで、メルセンヌ・ツイスタの内部状態を計算する。</p>
 <div class="cell docutils container">
@@ -545,10 +545,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pythonのrandomで使われている内部状態： [2206285243 1201318952 2198846929 2746181238  333581939 2405720354
-  253586031 1417428163  670640697  150137421 2405687725  605202272
- 3612583272 2321096515   68434682   66352295  381210420 4167326575
- 2326273530 3594784992]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pythonのrandomで使われている内部状態： [ 730795858  104404956 3990741879 3623431535 3365890669  187268822
+  975777203 4036839917 2613718807 2759327373 1930107121 1630147174
+ 2460444757 3491874324 2076095607 3566926049  889548826 2908494612
+ 1107546055 3300878144]
 </pre></div>
 </div>
 </div>
@@ -561,7 +561,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>推定した内部状態 [2206285243, 1201318952, 2198846929, 2746181238, 333581939, 2405720354, 253586031, 1417428163, 670640697, 150137421, 2405687725, 605202272, 3612583272, 2321096515, 68434682, 66352295, 381210420, 4167326575, 2326273530, 3594784992]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>推定した内部状態 [730795858, 104404956, 3990741879, 3623431535, 3365890669, 187268822, 975777203, 4036839917, 2613718807, 2759327373, 1930107121, 1630147174, 2460444757, 3491874324, 2076095607, 3566926049, 889548826, 2908494612, 1107546055, 3300878144]
 </pre></div>
 </div>
 </div>
@@ -575,8 +575,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random.getrandbits(32) :  3690198062
-predictor.predict_getrandbits(32) 3690198062
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>random.getrandbits(32) :  781146072
+predictor.predict_getrandbits(32) 781146072
 </pre></div>
 </div>
 </div>
