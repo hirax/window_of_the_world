@@ -519,7 +519,8 @@ pytuningパッケージを使って計算してみると、何とも綺麗では
 <span class="kn">from</span> <span class="nn">pytuning.constants</span> <span class="kn">import</span> <span class="n">five_limit_constructors</span>
 
 <span class="k">def</span> <span class="nf">my_display</span><span class="p">(</span><span class="n">l</span><span class="p">):</span> <span class="c1"># 横に並べるために関数を書いておく</span>
-    <span class="k">return</span> <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([(</span><span class="sa">r</span><span class="s2">&quot;$</span><span class="si">%s</span><span class="s2">$&quot;</span> <span class="o">%</span> <span class="n">latex</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">l</span><span class="p">])))</span>
+    <span class="c1">#return display(Math(&#39;, &#39;.join([(r&quot;$%s$&quot; % latex(t)) for t in l])))</span>
+    <span class="k">return</span> <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">latex</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">l</span><span class="p">])))</span>
 
 <span class="n">pythag_scale</span> <span class="o">=</span> <span class="n">create_pythagorean_scale</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">my_display</span><span class="p">(</span><span class="n">pythag_scale</span><span class="p">)</span>
@@ -529,7 +530,7 @@ pytuningパッケージを使って計算してみると、何とも綺麗では
 </details>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 1$, $\frac{256}{243}$, $\frac{9}{8}$, $\frac{32}{27}$, $\frac{81}{64}$, $\frac{4}{3}$, $\frac{1024}{729}$, $\frac{3}{2}$, $\frac{128}{81}$, $\frac{27}{16}$, $\frac{16}{9}$, $\frac{243}{128}$, $2\]</div>
+\[\displaystyle 1, \frac{256}{243}, \frac{9}{8}, \frac{32}{27}, \frac{81}{64}, \frac{4}{3}, \frac{1024}{729}, \frac{3}{2}, \frac{128}{81}, \frac{27}{16}, \frac{16}{9}, \frac{243}{128}, 2\]</div>
 </div>
 </div>
 </section>
@@ -553,7 +554,7 @@ pytuningパッケージを使って計算してみると、何とも綺麗では
 </details>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 1$, $\frac{9}{8}$, $\frac{5}{4}$, $\frac{4}{3}$, $\frac{3}{2}$, $\frac{5}{3}$, $\frac{15}{8}$, $2\]</div>
+\[\displaystyle 1, \frac{9}{8}, \frac{5}{4}, \frac{4}{3}, \frac{3}{2}, \frac{5}{3}, \frac{15}{8}, 2\]</div>
 </div>
 </div>
 </section>
@@ -576,7 +577,7 @@ pytuningパッケージを使って計算してみると、何とも綺麗では
 </details>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\displaystyle 1$, $\sqrt[12]{2}$, $\sqrt[6]{2}$, $\sqrt[4]{2}$, $\sqrt[3]{2}$, $2^{\frac{5}{12}}$, $\sqrt{2}$, $2^{\frac{7}{12}}$, $2^{\frac{2}{3}}$, $2^{\frac{3}{4}}$, $2^{\frac{5}{6}}$, $2^{\frac{11}{12}}$, $2\]</div>
+\[\displaystyle 1, \sqrt[12]{2}, \sqrt[6]{2}, \sqrt[4]{2}, \sqrt[3]{2}, 2^{\frac{5}{12}}, \sqrt{2}, 2^{\frac{7}{12}}, 2^{\frac{2}{3}}, 2^{\frac{3}{4}}, 2^{\frac{5}{6}}, 2^{\frac{11}{12}}, 2\]</div>
 </div>
 </div>
 </section>
