@@ -515,7 +515,7 @@ pytuningパッケージを使って計算してみると、何とも綺麗では
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Math</span>
 <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">latex</span>
 
-<span class="kn">from</span> <span class="nn">pytuning.scales</span> <span class="kn">import</span> <span class="n">create_edo_scale</span><span class="p">,</span> <span class="n">create_pythagorean_scale</span>
+<span class="kn">from</span> <span class="nn">pytuning.scales</span> <span class="kn">import</span> <span class="n">create_edo_scale</span><span class="p">,</span><span class="n">create_pythagorean_scale</span><span class="p">,</span><span class="n">create_diatonic_scale</span>
 <span class="kn">from</span> <span class="nn">pytuning.constants</span> <span class="kn">import</span> <span class="n">five_limit_constructors</span>
 
 <span class="k">def</span> <span class="nf">my_display</span><span class="p">(</span><span class="n">l</span><span class="p">):</span> <span class="c1"># 横に並べるために関数を書いておく</span>
@@ -552,16 +552,8 @@ pytuningパッケージを使って計算してみると、何とも綺麗では
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pure_scale</span> <span class="o">=</span> <span class="n">create_diatonic_scale</span><span class="p">(</span>    <span class="c1"># 純正律</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>                     <span class="n">five_limit_constructors</span><span class="p">,</span> <span class="s2">&quot;TtsTtTs&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">my_display</span><span class="p">(</span><span class="n">pure_scale</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;create_diatonic_scale&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1$, $\frac{9}{8}$, $\frac{5}{4}$, $\frac{4}{3}$, $\frac{3}{2}$, $\frac{5}{3}$, $\frac{15}{8}$, $2\]</div>
 </div>
 </div>
 </section>
@@ -569,13 +561,19 @@ pytuningパッケージを使って計算してみると、何とも綺麗では
 <h2>最後に平均律を眺めてみる<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
 <p>最後は、やはりアリストクセノスが思い描き、メルセンヌが算出した平均律だ。
 有理的には全く綺麗ではないが、<span class="math notranslate nohighlight">\(\sqrt{2}\)</span>という数字を受け入れさえすれば実に綺麗な比率となっている。</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edo_scale</span> <span class="o">=</span> <span class="n">create_edo_scale</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>       <span class="c1"># 平均律</span>
 <span class="n">my_display</span><span class="p">(</span><span class="n">edo_scale</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\displaystyle 1$, $\sqrt[12]{2}$, $\sqrt[6]{2}$, $\sqrt[4]{2}$, $\sqrt[3]{2}$, $2^{\frac{5}{12}}$, $\sqrt{2}$, $2^{\frac{7}{12}}$, $2^{\frac{2}{3}}$, $2^{\frac{3}{4}}$, $2^{\frac{5}{6}}$, $2^{\frac{11}{12}}$, $2\]</div>
