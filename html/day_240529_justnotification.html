@@ -519,8 +519,9 @@ pytuningパッケージを使って計算してみると、何とも綺麗では
 <span class="kn">from</span> <span class="nn">pytuning.constants</span> <span class="kn">import</span> <span class="n">five_limit_constructors</span>
 
 <span class="k">def</span> <span class="nf">my_display</span><span class="p">(</span><span class="n">l</span><span class="p">):</span> <span class="c1"># 横に並べるために関数を書いておく</span>
+    <span class="c1">#return display(Math(&#39;, &#39;.join([(r&quot;%s&quot; % latex(t)) for t in l])))</span>
+    <span class="k">return</span> <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">latex</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">l</span><span class="p">])))</span>
     <span class="c1">#return display(Math(&#39;, &#39;.join([(r&quot;$%s$&quot; % latex(t)) for t in l])))</span>
-    <span class="k">return</span> <span class="n">display</span><span class="p">(</span><span class="n">Math</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">latex</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">l</span><span class="p">])))</span>
 
 <span class="n">pythag_scale</span> <span class="o">=</span> <span class="n">create_pythagorean_scale</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">my_display</span><span class="p">(</span><span class="n">pythag_scale</span><span class="p">)</span>
