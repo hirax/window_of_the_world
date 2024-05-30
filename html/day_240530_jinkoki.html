@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'day_240530_jinkoki';</script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="prev" title="史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー ♯2 (&#39;24.05.24)" href="day_240529_justnotification.html" />
+    <link rel="prev" title="史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー ♯2 (&#39;24.05.29)" href="day_240529_justnotification.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -180,7 +180,7 @@
 <li class="toctree-l1"><a class="reference internal" href="day_240526_folium_kyoto.html">京都の町境界を描き「両側町」を眺めてみる('24.05.26)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day_240527_folium_kyoto.html">哲学の道「疎水」が流れる高さを眺めてみる('24.05.27)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day_240528_mersenne-twister-predictor.html">マラン・メルセンヌは「ヤコブの梯子」の夢をみたか？('24.05.28)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="day_240529_justnotification.html">史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー  ♯2 ('24.05.24)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240529_justnotification.html">史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー  ♯2 ('24.05.29)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">塵劫記に書かれたイエズス会「黒船問題」を解いてみる('24.05.30)</a></li>
 </ul>
 
@@ -494,11 +494,11 @@ document.write(`
 <span class="c1"># A,B,Cの3グループの出資比率</span>
 <span class="n">syusshi_ratio</span><span class="o">=</span><span class="n">syusshi</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">syusshi</span><span class="p">)</span>
 
-<span class="c1"># 転置を有効に働かせるために、上記定義で「2次元リスト」として定義している</span>
+<span class="c1"># 転置が機能するように、上記定義において「2次元リスト」としている</span>
 <span class="n">result</span><span class="o">=</span><span class="n">kaimono</span> <span class="o">*</span> <span class="n">syusshi_ratio</span><span class="o">.</span><span class="n">T</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A,B,Cの3グループのそれぞれの購入量&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">result</span><span class="o">.</span><span class="n">T</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">result</span> <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Aグループの人参・沈香・巻物・糸の購入量（斤、巻、斤、斤）&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
@@ -511,10 +511,9 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A,B,Cの3グループのそれぞれの購入量
-[[ 101.25      81.71875   67.03125]
- [  28.35      22.88125   18.76875]
- [ 113.4       91.525     75.075  ]
- [3402.      2745.75    2252.25   ]]
+[[ 101.25      28.35     113.4     3402.     ]
+ [  81.71875   22.88125   91.525   2745.75   ]
+ [  67.03125   18.76875   75.075   2252.25   ]]
 Aグループの人参・沈香・巻物・糸の購入量（斤、巻、斤、斤）
 [ 101.25   28.35  113.4  3402.  ]
 Bグループの人参・沈香・巻物・糸の購入量（斤、巻、斤、斤）
@@ -572,7 +571,7 @@ Cグループの人参・沈香・巻物・糸の購入量（斤、巻、斤、�
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">前へ</p>
-        <p class="prev-next-title">史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー  ♯2 ('24.05.24)</p>
+        <p class="prev-next-title">史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー  ♯2 ('24.05.29)</p>
       </div>
     </a>
 </div>
