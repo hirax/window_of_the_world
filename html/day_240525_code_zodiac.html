@@ -183,7 +183,7 @@
 <li class="toctree-l1"><a class="reference internal" href="day_240528_mersenne-twister-predictor.html">マラン・メルセンヌは「ヤコブの梯子」の夢をみたか？('24.05.28)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day_240529_justnotification.html">史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー  ♯2 ('24.05.29)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day_240530_jinkoki.html">塵劫記に書かれたイエズス会「黒船問題」を解いてみる('24.05.30)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="day_250531_%20Warizansyo.html">「割算書」に書かれた「アダムとイブの割り勘」('24.05.31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240531_%20Warizansyo.html">「割算書」に書かれた「アダムとイブの割り勘」('24.05.31)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="day_240601_seisyun18.html">青春18切符ポスター風画像を作る('24.06.01)</a></li>
 </ul>
 
@@ -577,45 +577,6 @@ document.write(`
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span><span class="nn">os</span><span class="o">,</span><span class="nn">random</span><span class="o">,</span><span class="nn">re</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageFont</span><span class="p">,</span> <span class="n">ImageDraw</span><span class="p">,</span> <span class="n">Image</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">cv2</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">time</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span><span class="o">-</span><span class="n">py311</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">PIL</span><span class="o">/</span><span class="n">ImageFont</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">35</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
-<span class="ne">---&gt; </span><span class="mi">35</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="kn">from</span> <span class="nn">._util</span> <span class="kn">import</span> <span class="n">is_directory</span><span class="p">,</span> <span class="n">is_path</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="k">class</span> <span class="nc">Layout</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span><span class="o">-</span><span class="n">py311</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">PIL</span><span class="o">/</span><span class="n">Image</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">82</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="n">MAX_IMAGE_PIXELS</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">//</span> <span class="mi">4</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span>     <span class="c1"># If the _imaging C module is not present, Pillow will not load.</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span>     <span class="c1"># Note that other modules should not refer to _imaging directly;</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="c1"># import Image and use the Image.core variable instead.</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="c1"># Also note that Image.core is not a publicly documented interface,</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span>     <span class="c1"># and should be considered private and subject to change.</span>
-<span class="ne">---&gt; </span><span class="mi">82</span>     <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_imaging</span> <span class="k">as</span> <span class="n">core</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="k">if</span> <span class="n">__version__</span> <span class="o">!=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="s2">&quot;PILLOW_VERSION&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span>         <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span>             <span class="s2">&quot;The _imaging extension was built for another version of Pillow or PIL:</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>             <span class="sa">f</span><span class="s2">&quot;Core version: </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">core</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;PILLOW_VERSION&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">None</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span>             <span class="sa">f</span><span class="s2">&quot;Pillow version: </span><span class="si">{</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="p">)</span>
-
-<span class="ne">ImportError</span>: dlopen(/opt/anaconda3/envs/jupyter-book-py311/lib/python3.11/site-packages/PIL/_imaging.cpython-311-darwin.so, 0x0002): Library not loaded: @rpath/libtiff.5.dylib
-  <span class="n">Referenced</span> <span class="n">from</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DB29B4E0</span><span class="o">-</span><span class="mf">5E05</span><span class="o">-</span><span class="mi">3</span><span class="n">F26</span><span class="o">-</span><span class="n">ABC5</span><span class="o">-</span><span class="mi">79</span><span class="n">A53D06F310</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span><span class="o">-</span><span class="n">py311</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">PIL</span><span class="o">/</span><span class="n">_imaging</span><span class="o">.</span><span class="n">cpython</span><span class="o">-</span><span class="mi">311</span><span class="o">-</span><span class="n">darwin</span><span class="o">.</span><span class="n">so</span>
-  <span class="n">Reason</span><span class="p">:</span> <span class="n">tried</span><span class="p">:</span> <span class="s1">&#39;/opt/anaconda3/envs/jupyter-book-py311/lib/python3.11/site-packages/PIL/../../../libtiff.5.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/opt/anaconda3/envs/jupyter-book-py311/lib/python3.11/site-packages/PIL/../../../libtiff.5.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/opt/anaconda3/envs/jupyter-book-py311/bin/../lib/libtiff.5.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/opt/anaconda3/envs/jupyter-book-py311/bin/../lib/libtiff.5.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/usr/local/lib/libtiff.5.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;/usr/lib/libtiff.5.dylib&#39;</span> <span class="p">(</span><span class="n">no</span> <span class="n">such</span> <span class="n">file</span><span class="p">,</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dyld</span> <span class="n">cache</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -679,7 +640,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/79a57dad29efc3780342a796649bf9481000f52d6db13d778b03c0530a121251.png" src="_images/79a57dad29efc3780342a796649bf9481000f52d6db13d778b03c0530a121251.png" />
+<img alt="_images/63486b6468b04295bba291b2b5c9337c1483b4a80e23590de17d3f0358aa8be6.png" src="_images/63486b6468b04295bba291b2b5c9337c1483b4a80e23590de17d3f0358aa8be6.png" />
 </div>
 </div>
 <section id="id1">
