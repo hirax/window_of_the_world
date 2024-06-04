@@ -1,0 +1,862 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>史実を辿る「走れメロス」計算 ♯1 (&#39;24.05.24) &#8212; 世界之窗</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'day_240524_geocoder_meros';</script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="ゾディアック事件の暗号Z340でメッセージを作る(&#39;24.05.25)" href="day_240525_code_zodiac.html" />
+    <link rel="prev" title="自分の網膜上の錐体分布を実感してみる。(&#39;24.05.23)" href="day_240523_numpy_vision.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">世界之窗</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    世界之窗
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="day_240521_gdal_pyramid.html">ナイル水辺の「古代エジプトのピラミッド」を眺めに行こう。('24.05.21)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240522_imageio_kyoto.html">京都という斜面、流れる水路の流れを眺めてみよう。('24.05.22)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240523_numpy_vision.html">自分の網膜上の錐体分布を実感してみる。('24.05.23)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">史実を辿る「走れメロス」計算 ♯1 ('24.05.24)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240525_code_zodiac.html">ゾディアック事件の暗号Z340でメッセージを作る('24.05.25)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240526_folium_kyoto.html">京都の町境界を描き「両側町」を眺めてみる('24.05.26)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240527_folium_kyoto.html">哲学の道「疎水」が流れる高さを眺めてみる('24.05.27)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240528_mersenne-twister-predictor.html">マラン・メルセンヌは「ヤコブの梯子」の夢をみたか？('24.05.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240529_justnotification.html">史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー  ♯2 ('24.05.29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240530_jinkoki.html">塵劫記に書かれたイエズス会「黒船問題」を解いてみる('24.05.30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240531_%20Warizansyo.html">「割算書」に書かれた「アダムとイブの割り勘」('24.05.31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240601_seisyun18.html">青春18切符ポスター風画像を作る('24.06.01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240602_pyramid.html">人工衛星LiDAR画像でピラミッドを見つけ出す('24.06.02)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240603_kyotoiko.html">JR東海「そうだ 京都、行こう。」風ポスター風画像を作る('24.06.03)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240604_music21_music_cipher.html">楽譜暗号を書いてみる('24.06.04)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/hirax/wow/main?urlpath=tree/html/day_240524_geocoder_meros.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/hirax/wow/blob/main/html/day_240524_geocoder_meros.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/hirax/wow" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="ソースリポジトリ"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/hirax/wow/issues/new?title=Issue%20on%20page%20%2Fday_240524_geocoder_meros.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="問題を報告"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/day_240524_geocoder_meros.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>史実を辿る「走れメロス」計算 ♯1 ('24.05.24)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">竹馬の友セリヌンティウスと過ごした村には戻れない</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">文献を調べて計算をする検証の旅は続く</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>史実を辿る「走れメロス」計算 ♯1 ('24.05.24)<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<p>太宰治「走れメロス」では、主人公メロスは、友人セリヌンティウスを人質として残し、シラクスの市街から十里(40km)離れた村まで3日間かけて往復する。
+太宰が書いた「走れメロス」物語は、18世紀ドイツのフリードリヒ・フォン・シラーがしたためた書物の日本訳※をベースにしている。</p>
+<p>太宰版「走れメロス」については、メロスの移動速度を検証した<a class="reference external" href="https://www.rimse.or.jp/research/past/pdf/1st/work03.pdf">優れた文献</a>がある。
+しかし、史実に遡った移動速度検証は試みられていない。
+そこで、そうした計算をしてみようと思う。</p>
+<p>※ 新編シラー詩抄 小栗孝則訳 改造文庫（昭和12年）</p>
+<p>「走れメロス」は、そのルーツを辿ると、紀元前400年頃のイタリア、ディオニュシオス1世・2世の時代に遡る。
+語られる内容にはバリエーションがあるが、比較的多いパターンは、ディオニュシオスから死刑を宣告されたピュティアスが友人ダモンを人質にして家まで往復をする、というものだ。
+帰ってくるまでのタイムリミットは、当日の日暮れまでというものもあれば、三日後の日暮れとか数日後の日暮れまでというものもある。</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="_images/day_240524_geocoder_meros_Damon_and_Pythias.gif"><img alt="_images/day_240524_geocoder_meros_Damon_and_Pythias.gif" src="_images/day_240524_geocoder_meros_Damon_and_Pythias.gif" style="height: 10cm;" /></a>
+<figcaption>
+<p><span class="caption-number">図 5 </span><span class="caption-text">The story of Greeksの挿絵</span><a class="headerlink" href="#id4" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
+<section id="id2">
+<h2>竹馬の友セリヌンティウスと過ごした村には戻れない<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>まずは、太宰治版の物語に登場する名前にもとづいて、メロスが往復した先を調べてみる。※</p>
+<p>メロスがシラクサ(Siracusa)の街に人質として残したのは、竹馬の友、つまり小さい頃から共に過ごした友人であるセリヌンティウスだ。
+セリヌンティウスというのは、そのものズバリ「セリヌスの人」という名前だ。
+ということは、メロスとセリヌンティウスが幼い頃に暮らしていた場所は、シチリア島の南西部、セリヌス（Selinous）だろう。</p>
+<p>SiracusaとSelinunteの緯度経度を調べて、地図に描いてみるとこうなる。</p>
+<p>※太宰治が書いた物語にもとづくが、今回は登場人物の名前のみに着目してみる。すなわち、メロスが向かった先が「シラクスから十里先」という記述は、ひとまず忘れておくことにする。</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geocoderパッケージを使う</span>
+<span class="kn">import</span> <span class="nn">geocoder</span>  <span class="c1"># conda install conda-forge::geocoder</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># 地名文字列</span>
+<span class="n">place1</span><span class="o">=</span><span class="s1">&#39;Siracusa,Italy&#39;</span>
+<span class="n">place2</span><span class="o">=</span><span class="s1">&#39;Selinunte,Italy&#39;</span>
+
+<span class="c1"># 緯度経度を取得する</span>
+<span class="c1"># 実際に取得する時</span>
+<span class="n">ua</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="s2">&quot;sample for python&quot;</span><span class="p">}</span>
+<span class="n">siracusa</span><span class="o">=</span><span class="n">geocoder</span><span class="o">.</span><span class="n">osm</span><span class="p">(</span><span class="n">place1</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">ua</span><span class="p">)</span><span class="o">.</span><span class="n">latlng</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">selinunte</span><span class="o">=</span><span class="n">geocoder</span><span class="o">.</span><span class="n">osm</span><span class="p">(</span><span class="n">place2</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">ua</span><span class="p">)</span><span class="o">.</span><span class="n">latlng</span>
+
+<span class="c1">#jupyter{book}ビルド用</span>
+<span class="c1">#siracusa=[37.075474, 15.286586]</span>
+<span class="c1">#selinunte=[37.583, 12.817]</span>
+
+<span class="c1"># 確認表示</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">place1</span><span class="p">,</span> <span class="n">siracusa</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">place2</span><span class="p">,</span> <span class="n">selinunte</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Siracusa,Italy [37.0646139, 15.2907196]
+Selinunte,Italy [37.5884265, 12.82465071085111]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># foliumパッケージを使う</span>
+<span class="kn">import</span> <span class="nn">folium</span>
+
+<span class="c1">#lat1,lon1 = siracusa.latlng</span>
+<span class="c1">#lat2,lon2 = selinunte.latlng</span>
+<span class="n">lat1</span><span class="p">,</span><span class="n">lon1</span> <span class="o">=</span> <span class="n">siracusa</span>
+<span class="n">lat2</span><span class="p">,</span><span class="n">lon2</span> <span class="o">=</span> <span class="n">selinunte</span>
+
+<span class="c1"># 地図を作る</span>
+<span class="n">fmap</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">siracusa</span><span class="p">,</span><span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="c1">#fmap = folium.Map(location=siracusa.latlng,zoom_start=6)</span>
+
+<span class="c1"># マーカープロット</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lat1</span><span class="p">,</span><span class="n">lon1</span><span class="p">],</span>
+              <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">fmap</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">lat2</span><span class="p">,</span><span class="n">lon2</span><span class="p">],</span><span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+             <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">fmap</span><span class="p">)</span>
+<span class="n">fmap</span> <span class="c1"># 表示する</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+    
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_55f54dc5e2d600d60e837898f1de22bd {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+        
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_55f54dc5e2d600d60e837898f1de22bd&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_55f54dc5e2d600d60e837898f1de22bd = L.map(
+                &quot;map_55f54dc5e2d600d60e837898f1de22bd&quot;,
+                {
+                    center: [37.0646139, 15.2907196],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a93d60e3e192e46f312b32c77d6591f9 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_a93d60e3e192e46f312b32c77d6591f9.addTo(map_55f54dc5e2d600d60e837898f1de22bd);
+        
+    
+            var marker_e5b60effb5c0046b1f9ac467aac9fc78 = L.marker(
+                [37.0646139, 15.2907196],
+                {}
+            ).addTo(map_55f54dc5e2d600d60e837898f1de22bd);
+        
+    
+            var icon_4678fc04b5bf984005302e2aecafbeb1 = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;black&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_e5b60effb5c0046b1f9ac467aac9fc78.setIcon(icon_4678fc04b5bf984005302e2aecafbeb1);
+        
+    
+            var marker_9ae4554437d5eb59fe50415340dd65fb = L.marker(
+                [37.5884265, 12.82465071085111],
+                {}
+            ).addTo(map_55f54dc5e2d600d60e837898f1de22bd);
+        
+    
+            var icon_6fbe6f08842707f1d60330d5cf8a33b1 = L.AwesomeMarkers.icon(
+                {&quot;extraClasses&quot;: &quot;fa-rotate-0&quot;, &quot;icon&quot;: &quot;info-sign&quot;, &quot;iconColor&quot;: &quot;white&quot;, &quot;markerColor&quot;: &quot;blue&quot;, &quot;prefix&quot;: &quot;glyphicon&quot;}
+            );
+            marker_9ae4554437d5eb59fe50415340dd65fb.setIcon(icon_6fbe6f08842707f1d60330d5cf8a33b1);
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+<p>SiracusaとSelinunteは、シチリア島の中でもほとんど東西の反対側に位置していて、かなり遠い。
+実際、距離を計算してみると、直線距離でも226kmほどもある。</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># geopyパッケージを使う</span>
+<span class="kn">from</span> <span class="nn">geopy.distance</span> <span class="kn">import</span> <span class="n">geodesic</span> <span class="c1"># conda install conda-forge::geopy</span>
+
+<span class="n">distance_km</span> <span class="o">=</span> <span class="n">geodesic</span><span class="p">(</span><span class="n">siracusa</span><span class="p">,</span> <span class="n">selinunte</span><span class="p">)</span><span class="o">.</span><span class="n">km</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">distance_km</span><span class="p">,</span><span class="s1">&#39;(km)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>225.99443613592337 (km)
+</pre></div>
+</div>
+</div>
+</div>
+<p>このシラクス（Siracusa）からSelinunteまでを距離226km×2=452kmを、メロスは往復したことになる。</p>
+<p>日暮れが遅い時期、たとえば夏至の頃のシチリア島での「日暮れ」を調べると、およそ18時30分くらいだ。
+すると、たとえば当日の日暮れまでの往復だと、直線距離でも時速53kmという非現実的な速度でなければ、メロスは往復できない。
+タイムリミットが、太宰が描いたような三日後の日暮れまでであれば、夜も昼も走り続けること前提の上で、時速5.6kmという現実的な速さになる。
+しかし、三日三晩不眠不休で走り続けるというのは、実際問題無理だろう。</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PyEphem astronomy libraryを使う</span>
+<span class="kn">import</span> <span class="nn">ephem</span> <span class="c1"># conda install anaconda::ephem</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">siracusa_obs</span> <span class="o">=</span> <span class="n">ephem</span><span class="o">.</span><span class="n">Observer</span><span class="p">()</span>
+<span class="n">siracusa_obs</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">siracusa</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">siracusa_obs</span><span class="o">.</span><span class="n">lat</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">siracusa</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">siracusa_obs</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">ephem</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="s1">&#39;2024/06/21 13:0:0.0&#39;</span><span class="p">)</span>
+<span class="n">sun</span> <span class="o">=</span> <span class="n">ephem</span><span class="o">.</span><span class="n">Sun</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;日の出時間：&#39;</span><span class="p">,</span> <span class="n">siracusa_obs</span><span class="o">.</span><span class="n">next_rising</span><span class="p">(</span><span class="n">sun</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;日暮れ時間：&#39;</span><span class="p">,</span> <span class="n">siracusa_obs</span><span class="o">.</span><span class="n">next_setting</span><span class="p">(</span><span class="n">sun</span><span class="p">))</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">h</span><span class="o">=</span><span class="n">siracusa</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mf">15.</span>
+<span class="n">m</span><span class="o">=</span><span class="p">(</span><span class="n">h</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">h</span><span class="p">))</span><span class="o">*</span><span class="mi">60</span>
+<span class="n">h</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;＋&#39;</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="s1">&#39;時間&#39;</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="p">),</span><span class="s1">&#39;分&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;当日日暮れまでだった場合&#39;</span><span class="p">,</span><span class="mi">226</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="mf">8.5</span><span class="p">,</span><span class="s1">&#39;km/h&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;三日後の日暮れだった場合&#39;</span><span class="p">,</span><span class="mi">226</span><span class="o">*</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mf">8.5</span><span class="p">),</span><span class="s1">&#39;km/h&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>日の出時間： 2024/6/22 03:02:32
+日暮れ時間： 2024/6/21 16:04:53
+＋ 2 時間 28 分
+当日日暮れまでだった場合 53.1764705882353 km/h
+三日後の日暮れだった場合 5.614906832298137 km/h
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>文献を調べて計算をする検証の旅は続く<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>さまざまな文献を辿っていくと、メロス（多くの文献ではピュティアス）が友人ダモンを人質として往復したのは、200ｋｍ以上も離れたSelinunteではなくて、また太宰が書いた十里先の村でもなくて、Siracusa市内のようだ。※</p>
+<p>「走れメロス」の検証の旅は、まだ始まったばかり。
+過去の文献を調べ、さまざまな計算をしていけば、いつかきっと何か発見することができるかもしれない。</p>
+<p>※そうであれば、当日の日暮れまでというタイムリミットでも自然かもしれない。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "hirax/wow",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "jupyter-book-py311"
+        },
+        kernelOptions: {
+            name: "jupyter-book-py311",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'jupyter-book-py311'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="day_240523_numpy_vision.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title">自分の網膜上の錐体分布を実感してみる。('24.05.23)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="day_240525_code_zodiac.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">ゾディアック事件の暗号Z340でメッセージを作る('24.05.25)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">竹馬の友セリヌンティウスと過ごした村には戻れない</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">文献を調べて計算をする検証の旅は続く</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 平林 純(Jun Hirabayashi)  twitter @hirax
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

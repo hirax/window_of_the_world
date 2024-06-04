@@ -1,0 +1,870 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>人工衛星LiDAR画像でピラミッドを見つけ出す(&#39;24.06.02) &#8212; 世界之窗</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'day_240602_pyramid';</script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="JR東海「そうだ 京都、行こう。」風ポスター風画像を作る(&#39;24.06.03)" href="day_240603_kyotoiko.html" />
+    <link rel="prev" title="青春18切符ポスター風画像を作る(&#39;24.06.01)" href="day_240601_seisyun18.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">世界之窗</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    世界之窗
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="day_240521_gdal_pyramid.html">ナイル水辺の「古代エジプトのピラミッド」を眺めに行こう。('24.05.21)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240522_imageio_kyoto.html">京都という斜面、流れる水路の流れを眺めてみよう。('24.05.22)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240523_numpy_vision.html">自分の網膜上の錐体分布を実感してみる。('24.05.23)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240524_geocoder_meros.html">史実を辿る「走れメロス」計算 ♯1 ('24.05.24)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240525_code_zodiac.html">ゾディアック事件の暗号Z340でメッセージを作る('24.05.25)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240526_folium_kyoto.html">京都の町境界を描き「両側町」を眺めてみる('24.05.26)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240527_folium_kyoto.html">哲学の道「疎水」が流れる高さを眺めてみる('24.05.27)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240528_mersenne-twister-predictor.html">マラン・メルセンヌは「ヤコブの梯子」の夢をみたか？('24.05.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240529_justnotification.html">史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー  ♯2 ('24.05.29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240530_jinkoki.html">塵劫記に書かれたイエズス会「黒船問題」を解いてみる('24.05.30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240531_%20Warizansyo.html">「割算書」に書かれた「アダムとイブの割り勘」('24.05.31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240601_seisyun18.html">青春18切符ポスター風画像を作る('24.06.01)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">人工衛星LiDAR画像でピラミッドを見つけ出す('24.06.02)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240603_kyotoiko.html">JR東海「そうだ 京都、行こう。」風ポスター風画像を作る('24.06.03)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="day_240604_music21_music_cipher.html">楽譜暗号を書いてみる('24.06.04)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/hirax/wow/main?urlpath=tree/html/day_240602_pyramid.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/hirax/wow/blob/main/html/day_240602_pyramid.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/hirax/wow" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="ソースリポジトリ"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/hirax/wow/issues/new?title=Issue%20on%20page%20%2Fday_240602_pyramid.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="問題を報告"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/day_240602_pyramid.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>人工衛星LiDAR画像でピラミッドを見つけ出す('24.06.02)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lidar">LiDAR撮影で見つけ出されたジャングルに隠れたピラミッド</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-earth-enginefoliumlidar">Google Earth EngineとfoliumでLiDAR撮影画像/可視光地図を眺める</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">エジプトから南米まで、世界中にあるピラミッド</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lidar-24-06-02">
+<h1>人工衛星LiDAR画像でピラミッドを見つけ出す('24.06.02)<a class="headerlink" href="#lidar-24-06-02" title="Permalink to this heading">#</a></h1>
+<section id="lidar">
+<h2>LiDAR撮影で見つけ出されたジャングルに隠れたピラミッド<a class="headerlink" href="#lidar" title="Permalink to this heading">#</a></h2>
+<p>「グアテマラ北部のジャングルの下に隠れていた古代マヤ文明の建造物が新しいレーザー技術によって発見された」という<a class="reference external" href="https://www.cnn.co.jp/style/architecture/35115470.html">記事</a>を読んだ(<a class="reference external" href="https://natgeo.nikkeibp.co.jp/atcl/news/24/030700134/">ギザの大ピラミッド、4500年前の「建造日誌」が残っていた</a>という記事も面白かった)。
+航空機からのLiDAR撮影で、高さ約２７メートルのピラミッドなどが発見されたという。
+LiDARというのは、照射した光の反射を撮影し、たとえば形状などを推定するために使われる。</p>
+<p>ピラミッドの形状は、光学的には例えると、車のヘッドライト光を反射するキャッツアイ的な構造だ。
+だから、ピラミッド構造は、LiDAR撮影画像には独特なパターンとして現れる。
+そのため、LiDAR撮影画像に生じた模様を分析すれば、ピラミッド的な構造を検出することができる、というわけだ。</p>
+</section>
+<section id="google-earth-enginefoliumlidar">
+<h2>Google Earth EngineとfoliumでLiDAR撮影画像/可視光地図を眺める<a class="headerlink" href="#google-earth-enginefoliumlidar" title="Permalink to this heading">#</a></h2>
+<p>そこで、地球上のさまざまな場所を、地図・人工衛星可視光画像・LiDAR撮影で眺めることができるようにして、未発見のピラミッドを探すことができるようにしてみようと思う。
+そのためのPythonコード、Google Earth EngineのAPIとfoliumを使って、地図・人工衛星可視光画像・LiDAR撮影で眺めるためのコードを書いて、実行してみる。</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mf">29.975811646205145</span><span class="p">,</span> <span class="mf">31.130714568679988</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span>
+<span class="kn">import</span> <span class="nn">ee</span>
+
+<span class="c1"># GEEの認証</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Authenticate</span><span class="p">()</span>
+<span class="n">ee</span><span class="o">.</span><span class="n">Initialize</span><span class="p">()</span>
+
+<span class="n">basemaps</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Google Maps&#39;</span><span class="p">:</span> <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+        <span class="n">tiles</span> <span class="o">=</span> <span class="s1">&#39;https://mt1.google.com/vt/lyrs=m&amp;x=</span><span class="si">{x}</span><span class="s1">&amp;y=</span><span class="si">{y}</span><span class="s1">&amp;z=</span><span class="si">{z}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">attr</span> <span class="o">=</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Google Maps&#39;</span><span class="p">,</span>
+        <span class="n">overlay</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">control</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;Google Satellite&#39;</span><span class="p">:</span> <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+        <span class="n">tiles</span> <span class="o">=</span> <span class="s1">&#39;https://mt1.google.com/vt/lyrs=s&amp;x=</span><span class="si">{x}</span><span class="s1">&amp;y=</span><span class="si">{y}</span><span class="s1">&amp;z=</span><span class="si">{z}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">attr</span> <span class="o">=</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Google Satellite&#39;</span><span class="p">,</span>
+        <span class="n">overlay</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">control</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;Google Terrain&#39;</span><span class="p">:</span> <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+        <span class="n">tiles</span> <span class="o">=</span> <span class="s1">&#39;https://mt1.google.com/vt/lyrs=p&amp;x=</span><span class="si">{x}</span><span class="s1">&amp;y=</span><span class="si">{y}</span><span class="s1">&amp;z=</span><span class="si">{z}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">attr</span> <span class="o">=</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Google Terrain&#39;</span><span class="p">,</span>
+        <span class="n">overlay</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">control</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;Google Satellite Hybrid&#39;</span><span class="p">:</span> <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+        <span class="n">tiles</span> <span class="o">=</span> <span class="s1">&#39;https://mt1.google.com/vt/lyrs=y&amp;x=</span><span class="si">{x}</span><span class="s1">&amp;y=</span><span class="si">{y}</span><span class="s1">&amp;z=</span><span class="si">{z}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">attr</span> <span class="o">=</span> <span class="s1">&#39;Google&#39;</span><span class="p">,</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Google Satellite&#39;</span><span class="p">,</span>
+        <span class="n">overlay</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">control</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;Esri Satellite&#39;</span><span class="p">:</span> <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+        <span class="n">tiles</span> <span class="o">=</span> <span class="s1">&#39;https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/</span><span class="si">{z}</span><span class="s1">/</span><span class="si">{y}</span><span class="s1">/</span><span class="si">{x}</span><span class="s1">&#39;</span><span class="p">,</span>
+        <span class="n">attr</span> <span class="o">=</span> <span class="s1">&#39;Esri&#39;</span><span class="p">,</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Esri Satellite&#39;</span><span class="p">,</span>
+        <span class="n">overlay</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">control</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># foliumマップにGEEを表示させる関数</span>
+<span class="k">def</span> <span class="nf">add_ee_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee_image_object</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="n">map_id_dict</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">ee_image_object</span><span class="p">)</span><span class="o">.</span><span class="n">getMapId</span><span class="p">(</span><span class="n">vis_params</span><span class="p">)</span>
+    <span class="n">folium</span><span class="o">.</span><span class="n">raster_layers</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+        <span class="n">tiles</span><span class="o">=</span><span class="n">map_id_dict</span><span class="p">[</span><span class="s1">&#39;tile_fetcher&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">url_format</span><span class="p">,</span>
+        <span class="n">attr</span><span class="o">=</span><span class="s1">&#39;&lt;a href=&quot;https://earthengine.google.com/&quot;&gt;Google Earth Engine&lt;/a&gt;&#39;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">overlay</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">control</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="c1"># 地図を作成</span>
+<span class="n">fmap</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">center</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">basemaps</span><span class="p">[</span><span class="s1">&#39;Google Maps&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">fmap</span><span class="p">)</span>
+<span class="n">basemaps</span><span class="p">[</span><span class="s1">&#39;Google Satellite Hybrid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">fmap</span><span class="p">)</span>
+
+<span class="c1"># Sentinel-1</span>
+<span class="n">sentinel1</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;COPERNICUS/S1_GRD&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">filterDate</span><span class="p">(</span><span class="s1">&#39;2020-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-12-31&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">listContains</span><span class="p">(</span><span class="s1">&#39;transmitterReceiverPolarisation&#39;</span><span class="p">,</span> <span class="s1">&#39;VV&#39;</span><span class="p">))</span> \
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">listContains</span><span class="p">(</span><span class="s1">&#39;transmitterReceiverPolarisation&#39;</span><span class="p">,</span> <span class="s1">&#39;VH&#39;</span><span class="p">))</span> \
+    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">ee</span><span class="o">.</span><span class="n">Filter</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s1">&#39;instrumentMode&#39;</span><span class="p">,</span> <span class="s1">&#39;IW&#39;</span><span class="p">))</span>
+<span class="c1"># ImageCollectionからモザイクを作成</span>
+<span class="n">mosaic</span> <span class="o">=</span> <span class="n">sentinel1</span><span class="o">.</span><span class="n">mosaic</span><span class="p">()</span>
+
+<span class="c1"># 地図にレイヤーを追加</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="o">.</span><span class="n">add_ee_layer</span> <span class="o">=</span> <span class="n">add_ee_layer</span>
+<span class="n">fmap</span><span class="o">.</span><span class="n">add_ee_layer</span><span class="p">(</span><span class="n">mosaic</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;VH&#39;</span><span class="p">]),</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span> <span class="s1">&#39;Sentinel-1 VH&#39;</span><span class="p">)</span>
+<span class="n">fmap</span><span class="o">.</span><span class="n">add_ee_layer</span><span class="p">(</span><span class="n">mosaic</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;VV&#39;</span><span class="p">]),</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span> <span class="s1">&#39;Sentinel-1 VV&#39;</span><span class="p">)</span>
+<span class="c1"># コントロール部品を追加</span>
+<span class="n">fmap</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">(</span><span class="n">collapsed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="nb">map</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+    
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_c2ce295962cd94e5458a3a97f15198ee {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+        
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_c2ce295962cd94e5458a3a97f15198ee&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_c2ce295962cd94e5458a3a97f15198ee = L.map(
+                &quot;map_c2ce295962cd94e5458a3a97f15198ee&quot;,
+                {
+                    center: [29.975811646205145, 31.130714568679988],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2cda503470d5c49296af1b0e3e1b92f0 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_2cda503470d5c49296af1b0e3e1b92f0.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var tile_layer_a8d9ad59010aa06088875897b566a4a7 = L.tileLayer(
+                &quot;https://mt1.google.com/vt/lyrs=m\u0026x={x}\u0026y={y}\u0026z={z}&quot;,
+                {&quot;attribution&quot;: &quot;Google&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_a8d9ad59010aa06088875897b566a4a7.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var tile_layer_546e7ae81bffbb842ebdf02157a46282 = L.tileLayer(
+                &quot;https://mt1.google.com/vt/lyrs=y\u0026x={x}\u0026y={y}\u0026z={z}&quot;,
+                {&quot;attribution&quot;: &quot;Google&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_546e7ae81bffbb842ebdf02157a46282.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var tile_layer_7211950ba86fb53f191d45b855ba847a = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/4f15112b6e66b7e84f19c21f0ac1695e-1a6a8664127ba47cd9720dde377683bd/tiles/{z}/{x}/{y}&quot;,
+                {&quot;attribution&quot;: &quot;\u003ca href=\&quot;https://earthengine.google.com/\&quot;\u003eGoogle Earth Engine\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_7211950ba86fb53f191d45b855ba847a.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var tile_layer_21f7d58345bee513f348bc895fa7ddb8 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/1a3f2db9e74d91f04cefd809f3b574e1-36e72e7f10b0fd4e9af6de2bc2ea407d/tiles/{z}/{x}/{y}&quot;,
+                {&quot;attribution&quot;: &quot;\u003ca href=\&quot;https://earthengine.google.com/\&quot;\u003eGoogle Earth Engine\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_21f7d58345bee513f348bc895fa7ddb8.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var layer_control_38dd2d157c42a879d845ffa5c0410868_layers = {
+                base_layers : {
+                    &quot;openstreetmap&quot; : tile_layer_2cda503470d5c49296af1b0e3e1b92f0,
+                },
+                overlays :  {
+                    &quot;Google Maps&quot; : tile_layer_a8d9ad59010aa06088875897b566a4a7,
+                    &quot;Google Satellite&quot; : tile_layer_546e7ae81bffbb842ebdf02157a46282,
+                    &quot;Sentinel-1 VH&quot; : tile_layer_7211950ba86fb53f191d45b855ba847a,
+                    &quot;Sentinel-1 VV&quot; : tile_layer_21f7d58345bee513f348bc895fa7ddb8,
+                },
+            };
+            let layer_control_38dd2d157c42a879d845ffa5c0410868 = L.control.layers(
+                layer_control_38dd2d157c42a879d845ffa5c0410868_layers.base_layers,
+                layer_control_38dd2d157c42a879d845ffa5c0410868_layers.overlays,
+                {&quot;autoZIndex&quot;: true, &quot;collapsed&quot;: false, &quot;position&quot;: &quot;topright&quot;}
+            ).addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+<p>まずは、人工衛星から撮影した、エジプトのカイロ近くのピラミッド可視光画像を眺めてみる。
+ピラミッドは、カイロの町近くにあって、こんな景色を眺めて暮らしてみたかった気もする。</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/day_240601_pyramid_rgb.png"><img alt="_images/day_240601_pyramid_rgb.png" src="_images/day_240601_pyramid_rgb.png" style="height: 10cm;" /></a>
+<figcaption>
+<p><span class="caption-number">図 18 </span><span class="caption-text">エジプトのカイロ近くのピラミッド（可視光画像）</span><a class="headerlink" href="#id2" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
+<p>次に、人工衛星から撮影した、LiDAR画像を眺めてみる。
+ピラミッド的な構造、キャッツアイ的な構造に光が斜めから当たると、明暗模様が生まれる。
+そういうことを知った上で下の画像を眺めると、ピラミッドが存在していることがわかる。</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/day_240601_pyramid_lidar.png"><img alt="_images/day_240601_pyramid_lidar.png" src="_images/day_240601_pyramid_lidar.png" style="height: 10cm;" /></a>
+<figcaption>
+<p><span class="caption-number">図 19 </span><span class="caption-text">エジプトのカイロ近くのピラミッド（LiDAR画像）</span><a class="headerlink" href="#id3" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id1">
+<h2>エジプトから南米まで、世界中にあるピラミッド<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>今日は、未だ発見されていないピラミッドを見つけるための、スタートラインのコードを書いてた。
+南米のグアテマラにあるピラミッド発見のニュースをきっかけに、アフリカとヨーロッパとアジアの中間に位置するエジプトのピラミッドを眺めると、世界中にピラミッドが点在していることを意識させられる。
+そして、世界中のピラミッドを眺めに行ってみたいと思う。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "hirax/wow",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "jupyter-book-py311"
+        },
+        kernelOptions: {
+            name: "jupyter-book-py311",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'jupyter-book-py311'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="day_240601_seisyun18.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title">青春18切符ポスター風画像を作る('24.06.01)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="day_240603_kyotoiko.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title">JR東海「そうだ 京都、行こう。」風ポスター風画像を作る('24.06.03)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lidar">LiDAR撮影で見つけ出されたジャングルに隠れたピラミッド</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-earth-enginefoliumlidar">Google Earth EngineとfoliumでLiDAR撮影画像/可視光地図を眺める</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">エジプトから南米まで、世界中にあるピラミッド</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 平林 純(Jun Hirabayashi)  twitter @hirax
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
