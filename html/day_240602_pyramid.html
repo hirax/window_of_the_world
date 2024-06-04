@@ -547,13 +547,13 @@ LiDARというのは、照射した光の反射を撮影し、たとえば形状
 </div>
 </details>
 </div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
+<div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># foliumマップにGEEを表示させる関数</span>
 <span class="k">def</span> <span class="nf">add_ee_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ee_image_object</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="n">map_id_dict</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">ee_image_object</span><span class="p">)</span><span class="o">.</span><span class="n">getMapId</span><span class="p">(</span><span class="n">vis_params</span><span class="p">)</span>
@@ -590,30 +590,134 @@ LiDARというのは、照射した光の反射を撮影し、たとえば形状
 </div>
 </div>
 </details>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">32</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="n">fmap</span><span class="o">.</span><span class="n">add_ee_layer</span><span class="p">(</span><span class="n">mosaic</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="s1">&#39;VV&#39;</span><span class="p">]),</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">},</span> <span class="s1">&#39;Sentinel-1 VV&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="c1"># コントロール部品を追加</span>
-<span class="ne">---&gt; </span><span class="mi">32</span> <span class="n">fmap</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">(</span><span class="n">collapsed</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="nb">map</span><span class="p">))</span>
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    
+        &lt;script&gt;
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        &lt;/script&gt;
+    
+    &lt;style&gt;html, body {width: 100%;height: 100%;margin: 0;padding: 0;}&lt;/style&gt;
+    &lt;style&gt;#map {position:absolute;top:0;bottom:0;right:0;left:0;}&lt;/style&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_c2ce295962cd94e5458a3a97f15198ee {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+        
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_c2ce295962cd94e5458a3a97f15198ee&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_c2ce295962cd94e5458a3a97f15198ee = L.map(
+                &quot;map_c2ce295962cd94e5458a3a97f15198ee&quot;,
+                {
+                    center: [29.975811646205145, 31.130714568679988],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
 
-<span class="nn">File /opt/anaconda3/envs/jupyter-book-py311/lib/python3.11/site-packages/branca/element.py:136,</span> in <span class="ni">Element.add_to</span><span class="nt">(self, parent, name, index)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span> <span class="k">def</span> <span class="nf">add_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Add element to a parent.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">136</span>     <span class="n">parent</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">return</span> <span class="bp">self</span>
+            
 
-<span class="ne">AttributeError</span>: type object &#39;map&#39; has no attribute &#39;add_child&#39;
-</pre></div>
-</div>
-</div>
-</details>
+        
+    
+            var tile_layer_2cda503470d5c49296af1b0e3e1b92f0 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 19, &quot;maxZoom&quot;: 19, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_2cda503470d5c49296af1b0e3e1b92f0.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var tile_layer_a8d9ad59010aa06088875897b566a4a7 = L.tileLayer(
+                &quot;https://mt1.google.com/vt/lyrs=m\u0026x={x}\u0026y={y}\u0026z={z}&quot;,
+                {&quot;attribution&quot;: &quot;Google&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_a8d9ad59010aa06088875897b566a4a7.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var tile_layer_546e7ae81bffbb842ebdf02157a46282 = L.tileLayer(
+                &quot;https://mt1.google.com/vt/lyrs=y\u0026x={x}\u0026y={y}\u0026z={z}&quot;,
+                {&quot;attribution&quot;: &quot;Google&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_546e7ae81bffbb842ebdf02157a46282.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var tile_layer_7211950ba86fb53f191d45b855ba847a = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/4f15112b6e66b7e84f19c21f0ac1695e-1a6a8664127ba47cd9720dde377683bd/tiles/{z}/{x}/{y}&quot;,
+                {&quot;attribution&quot;: &quot;\u003ca href=\&quot;https://earthengine.google.com/\&quot;\u003eGoogle Earth Engine\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_7211950ba86fb53f191d45b855ba847a.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var tile_layer_21f7d58345bee513f348bc895fa7ddb8 = L.tileLayer(
+                &quot;https://earthengine.googleapis.com/v1/projects/earthengine-legacy/maps/1a3f2db9e74d91f04cefd809f3b574e1-36e72e7f10b0fd4e9af6de2bc2ea407d/tiles/{z}/{x}/{y}&quot;,
+                {&quot;attribution&quot;: &quot;\u003ca href=\&quot;https://earthengine.google.com/\&quot;\u003eGoogle Earth Engine\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_21f7d58345bee513f348bc895fa7ddb8.addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+        
+    
+            var layer_control_38dd2d157c42a879d845ffa5c0410868_layers = {
+                base_layers : {
+                    &quot;openstreetmap&quot; : tile_layer_2cda503470d5c49296af1b0e3e1b92f0,
+                },
+                overlays :  {
+                    &quot;Google Maps&quot; : tile_layer_a8d9ad59010aa06088875897b566a4a7,
+                    &quot;Google Satellite&quot; : tile_layer_546e7ae81bffbb842ebdf02157a46282,
+                    &quot;Sentinel-1 VH&quot; : tile_layer_7211950ba86fb53f191d45b855ba847a,
+                    &quot;Sentinel-1 VV&quot; : tile_layer_21f7d58345bee513f348bc895fa7ddb8,
+                },
+            };
+            let layer_control_38dd2d157c42a879d845ffa5c0410868 = L.control.layers(
+                layer_control_38dd2d157c42a879d845ffa5c0410868_layers.base_layers,
+                layer_control_38dd2d157c42a879d845ffa5c0410868_layers.overlays,
+                {&quot;autoZIndex&quot;: true, &quot;collapsed&quot;: false, &quot;position&quot;: &quot;topright&quot;}
+            ).addTo(map_c2ce295962cd94e5458a3a97f15198ee);
+
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
 </div>
 <p>まずは、人工衛星から撮影した、エジプトのカイロ近くのピラミッド可視光画像を眺めてみる。
 ピラミッドは、カイロの町近くにあって、こんな景色を眺めて暮らしてみたかった気もする。</p>
