@@ -560,9 +560,13 @@ document.write(`
 <a class="reference internal image-reference" href="_images/4937fd3e7ff7f91d0c450b2bfd811bf1b8332e74b8a551c44b0ebfbb2b9f0222.svg"><img alt="_images/4937fd3e7ff7f91d0c450b2bfd811bf1b8332e74b8a551c44b0ebfbb2b9f0222.svg" height="49" src="_images/4937fd3e7ff7f91d0c450b2bfd811bf1b8332e74b8a551c44b0ebfbb2b9f0222.svg" width="674" /></a>
 </div>
 </div>
-<p>そして、オイラーが1736年に考えた「一筆書きで元の場所に戻れるか」を判定法を、『なには八ツ橋智恵の渡り』に適用させてみると、答えはこうなる。
-つまり、オリジナルの「ケーニヒスベルクの橋の問題」と同じ結果が得られる。</p>
-<div class="cell docutils container">
+<p>そして、オイラーが1736年に考えた「一筆書きで元の場所に戻れるか」を判定法をPythonコードにして、『なには八ツ橋智恵の渡り』に適用させてみると、答えはこうなる。</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eulerpath</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
     <span class="n">odd</span><span class="o">=</span><span class="mi">0</span>
@@ -579,12 +583,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>一筆書き経路で元の場所に戻ることはできません。
 </pre></div>
 </div>
 </div>
 </div>
+<p>つまり、オリジナルの「ケーニヒスベルクの橋の問題」と同じ結果が得られる。</p>
 </section>
 <section id="id3">
 <h2>ハシを渡りさえしばければワキの町を通り抜けても良い？の謎<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
