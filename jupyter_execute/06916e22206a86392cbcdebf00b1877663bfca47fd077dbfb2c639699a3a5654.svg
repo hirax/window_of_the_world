@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="249pt" height="332pt" viewBox="0.00 0.00 248.54 332.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-328 244.54,-328 244.54,4 -4,4"/>
+<!-- 難波A -->
+<g id="node1" class="node">
+<title>難波A</title>
+<ellipse fill="none" stroke="black" cx="81.1" cy="-306" rx="36" ry="18"/>
+<text text-anchor="middle" x="81.1" y="-302.3" font-family="Times,serif" font-size="14.00">難波A</text>
+</g>
+<!-- 難波B -->
+<g id="node2" class="node">
+<title>難波B</title>
+<ellipse fill="none" stroke="black" cx="37.1" cy="-234" rx="35.19" ry="18"/>
+<text text-anchor="middle" x="37.1" y="-230.3" font-family="Times,serif" font-size="14.00">難波B</text>
+</g>
+<!-- 難波A&#45;&#45;難波B -->
+<g id="edge1" class="edge">
+<title>難波A--難波B</title>
+<path fill="none" stroke="black" d="M65.61,-289.46C57.31,-278.35 47.85,-263.39 41.88,-251.96"/>
+</g>
+<!-- 難波A&#45;&#45;難波B -->
+<g id="edge2" class="edge">
+<title>難波A--難波B</title>
+<path fill="none" stroke="black" d="M76.32,-288.05C70.32,-276.56 60.79,-261.5 52.45,-250.36"/>
+</g>
+<!-- 難波D -->
+<g id="node3" class="node">
+<title>難波D</title>
+<ellipse fill="none" stroke="black" cx="126.1" cy="-234" rx="36" ry="18"/>
+<text text-anchor="middle" x="126.1" y="-230.3" font-family="Times,serif" font-size="14.00">難波D</text>
+</g>
+<!-- 難波A&#45;&#45;難波D -->
+<g id="edge3" class="edge">
+<title>難波A--難波D</title>
+<path fill="none" stroke="black" d="M86.11,-288.05C92.28,-276.56 102.03,-261.5 110.53,-250.36"/>
+</g>
+<!-- 難波A&#45;&#45;難波D -->
+<g id="edge4" class="edge">
+<title>難波A--難波D</title>
+<path fill="none" stroke="black" d="M96.8,-289.46C105.27,-278.35 114.94,-263.39 121.07,-251.96"/>
+</g>
+<!-- 難波C -->
+<g id="node4" class="node">
+<title>難波C</title>
+<ellipse fill="none" stroke="black" cx="35.1" cy="-90" rx="35.19" ry="18"/>
+<text text-anchor="middle" x="35.1" y="-86.3" font-family="Times,serif" font-size="14.00">難波C</text>
+</g>
+<!-- 難波B&#45;&#45;難波C -->
+<g id="edge5" class="edge">
+<title>難波B--難波C</title>
+<path fill="none" stroke="black" d="M36.86,-215.87C36.47,-188.58 35.72,-135.52 35.34,-108.19"/>
+</g>
+<!-- 難波F -->
+<g id="node5" class="node">
+<title>難波F</title>
+<ellipse fill="none" stroke="black" cx="126.1" cy="-90" rx="34.39" ry="18"/>
+<text text-anchor="middle" x="126.1" y="-86.3" font-family="Times,serif" font-size="14.00">難波F</text>
+</g>
+<!-- 難波B&#45;&#45;難波F -->
+<g id="edge6" class="edge">
+<title>難波B--難波F</title>
+<path fill="none" stroke="black" d="M47.31,-216.71C64.38,-189.47 98.55,-134.95 115.73,-107.54"/>
+</g>
+<!-- 難波D&#45;&#45;難波F -->
+<g id="edge9" class="edge">
+<title>難波D--難波F</title>
+<path fill="none" stroke="black" d="M117.05,-216.43C111.11,-189.07 111.11,-134.75 117.07,-107.46"/>
+</g>
+<!-- 難波D&#45;&#45;難波F -->
+<g id="edge10" class="edge">
+<title>難波D--難波F</title>
+<path fill="none" stroke="black" d="M126.1,-215.87C126.1,-188.58 126.1,-135.52 126.1,-108.19"/>
+</g>
+<!-- 難波D&#45;&#45;難波F -->
+<g id="edge11" class="edge">
+<title>難波D--難波F</title>
+<path fill="none" stroke="black" d="M135.15,-216.43C141.09,-189.07 141.08,-134.75 135.12,-107.46"/>
+</g>
+<!-- 難波E -->
+<g id="node7" class="node">
+<title>難波E</title>
+<ellipse fill="none" stroke="black" cx="206.1" cy="-162" rx="34.39" ry="18"/>
+<text text-anchor="middle" x="206.1" y="-158.3" font-family="Times,serif" font-size="14.00">難波E</text>
+</g>
+<!-- 難波D&#45;&#45;難波E -->
+<g id="edge8" class="edge">
+<title>難波D--難波E</title>
+<path fill="none" stroke="black" d="M143.06,-218.15C156.64,-206.28 175.59,-189.7 189.16,-177.82"/>
+</g>
+<!-- 難波G -->
+<g id="node6" class="node">
+<title>難波G</title>
+<ellipse fill="none" stroke="black" cx="126.1" cy="-18" rx="36" ry="18"/>
+<text text-anchor="middle" x="126.1" y="-14.3" font-family="Times,serif" font-size="14.00">難波G</text>
+</g>
+<!-- 難波C&#45;&#45;難波G -->
+<g id="edge7" class="edge">
+<title>難波C--難波G</title>
+<path fill="none" stroke="black" d="M53.95,-74.5C69.57,-62.48 91.65,-45.49 107.27,-33.49"/>
+</g>
+<!-- 難波F&#45;&#45;難波G -->
+<g id="edge13" class="edge">
+<title>難波F--難波G</title>
+<path fill="none" stroke="black" d="M114.5,-72.76C111.96,-61.46 111.96,-46.44 114.52,-35.15"/>
+</g>
+<!-- 難波F&#45;&#45;難波G -->
+<g id="edge14" class="edge">
+<title>難波F--難波G</title>
+<path fill="none" stroke="black" d="M126.1,-71.7C126.1,-60.85 126.1,-46.92 126.1,-36.1"/>
+</g>
+<!-- 難波F&#45;&#45;難波G -->
+<g id="edge15" class="edge">
+<title>難波F--難波G</title>
+<path fill="none" stroke="black" d="M137.7,-72.76C140.24,-61.46 140.23,-46.44 137.68,-35.15"/>
+</g>
+<!-- 難波E&#45;&#45;難波F -->
+<g id="edge12" class="edge">
+<title>難波E--難波F</title>
+<path fill="none" stroke="black" d="M189.13,-146.15C175.55,-134.28 156.61,-117.7 143.04,-105.82"/>
+</g>
+</g>
+</svg>
