@@ -519,6 +519,7 @@ document.write(`
 <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;難波A&quot;</span><span class="p">,</span> <span class="s2">&quot;難波D&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;難波B&quot;</span><span class="p">,</span> <span class="s2">&quot;難波C&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;難波B&quot;</span><span class="p">,</span> <span class="s2">&quot;難波F&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;難波B&quot;</span><span class="p">,</span> <span class="s2">&quot;難波B&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;難波C&quot;</span><span class="p">,</span> <span class="s2">&quot;難波G&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;難波D&quot;</span><span class="p">,</span> <span class="s2">&quot;難波E&quot;</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s2">&quot;難波D&quot;</span><span class="p">,</span> <span class="s2">&quot;難波F&quot;</span><span class="p">)</span>
@@ -545,12 +546,18 @@ document.write(`
 </details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>島の数 7
-橋の数 15
+橋の数 16
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/06916e22206a86392cbcdebf00b1877663bfca47fd077dbfb2c639699a3a5654.svg"><img alt="_images/06916e22206a86392cbcdebf00b1877663bfca47fd077dbfb2c639699a3a5654.svg" height="49" src="_images/06916e22206a86392cbcdebf00b1877663bfca47fd077dbfb2c639699a3a5654.svg" width="674" /></a>
+<a class="reference internal image-reference" href="_images/3d360137189cacd24d4044c468c875b6a54fa0147987ffcf623602bc93b95e93.svg"><img alt="_images/3d360137189cacd24d4044c468c875b6a54fa0147987ffcf623602bc93b95e93.svg" height="49" src="_images/3d360137189cacd24d4044c468c875b6a54fa0147987ffcf623602bc93b95e93.svg" width="674" /></a>
 </div>
 </div>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="_images/day_240606_graphx_naniwa_graph.png"><img alt="_images/day_240606_graphx_naniwa_graph.png" src="_images/day_240606_graphx_naniwa_graph.png" style="height: 9cm;" /></a>
+<figcaption>
+<p><span class="caption-number">図 27 </span><span class="caption-text">「なにわ十六橋智恵の渡り」のグラフ構造</span><a class="headerlink" href="#id8" title="この画像へのパーマリンク">#</a></p>
+</figcaption>
+</figure>
 <p>そして、オイラー閉路が存在するかどうかを判定する、昨日書いたコードを実行してみる。
 すると、「一筆書き経路で元の場所に戻ることができます」という結果が得られる。
 つまり、すべての島＝頂点に繋がる橋＝辺は偶数なので、「なにわ十六橋智恵の渡り」には「オイラー閉路が存在する」というのが答えだ。</p>
@@ -611,6 +618,7 @@ document.write(`
 難波F から 難波G に渡る。
 難波G から 難波C に渡る。
 難波C から 難波B に渡る。
+難波B から 難波B に渡る。
 難波B から 難波F に渡る。
 難波F から 難波E に渡る。
 難波E から 難波D に渡る。
@@ -627,10 +635,10 @@ document.write(`
 <p>「ケーニヒスベルグの橋の問題」が、現実の町に存在する島や橋を題材にしたように、大阪を舞台とした「ケーニヒスベルグの橋の問題」も、実際の町を踏まえた観光計算問題だ。
 ちなみに、「なにわ十六橋智恵の渡り」の舞台は中之島あたりである。
 東西南北の方向は異なるが、現在の地図を貼り付けてみると、下のような具合だ。</p>
-<figure class="align-default" id="id8">
+<figure class="align-default" id="id9">
 <a class="reference internal image-reference" href="_images/day_240606_graphx_naniwa_.png"><img alt="_images/day_240606_graphx_naniwa_.png" src="_images/day_240606_graphx_naniwa_.png" style="height: 9cm;" /></a>
 <figcaption>
-<p><span class="caption-number">図 27 </span><span class="caption-text">「なにわ十六橋智恵の渡り」の舞台となった場所（現在）</span><a class="headerlink" href="#id8" title="この画像へのパーマリンク">#</a></p>
+<p><span class="caption-number">図 28 </span><span class="caption-text">「なにわ十六橋智恵の渡り」の舞台となった場所（現在）</span><a class="headerlink" href="#id9" title="この画像へのパーマリンク">#</a></p>
 </figcaption>
 </figure>
 </section>
