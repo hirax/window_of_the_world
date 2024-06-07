@@ -499,12 +499,12 @@ document.write(`
 <span class="math notranslate nohighlight">\(\pi=3\)</span>ということになる。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pi=&#39;</span><span class="p">,</span><span class="mi">30</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pi=&#39;</span><span class="p">,</span><span class="mi">30</span><span class="o">//</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># /を使うと浮動小数点演算が行われる https://qiita.com/toKoinX/items/032316ca77e28b80c142</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pi= 3.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pi= 3
 </pre></div>
 </div>
 </div>
