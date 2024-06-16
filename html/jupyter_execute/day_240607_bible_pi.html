@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>聖書(列王記, 歴代誌)で「円周率」を考える(&#39;24.06.07) &#8212; 世界之窗</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'jupyter_execute/day_240607_bible_pi';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">世界之窗</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    世界之窗
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../day_240521_gdal_pyramid.html">ナイル水辺の「古代エジプトのピラミッド」を眺めに行こう。('24.05.21)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240522_imageio_kyoto.html">京都という斜面、流れる水路の流れを眺めてみよう。('24.05.22)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240523_numpy_vision.html">自分の網膜上の錐体分布を実感してみる。('24.05.23)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240524_geocoder_meros.html">史実を辿る「走れメロス」計算 ♯1 ('24.05.24)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240525_code_zodiac.html">ゾディアック事件の暗号Z340でメッセージを作る('24.05.25)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240526_folium_kyoto.html">京都の町境界を描き「両側町」を眺めてみる('24.05.26)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240527_folium_kyoto.html">哲学の道「疎水」が流れる高さを眺めてみる('24.05.27)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240528_mersenne-twister-predictor.html">マラン・メルセンヌは「ヤコブの梯子」の夢をみたか？('24.05.28)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240529_justnotification.html">史実を辿る「走れメロス」計算ーアリストクセノスの音律編ー  ♯2 ('24.05.29)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240530_jinkoki.html">塵劫記に書かれたイエズス会「黒船問題」を解いてみる('24.05.30)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240531_warizansyo.html">「割算書」に書かれた「アダムとイブの割り勘」('24.05.31)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240601_seisyun18.html">青春18切符ポスター風画像を作る('24.06.01)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240602_pyramid.html">人工衛星LiDAR画像でピラミッドを見つけ出す('24.06.02)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240603_kyotoiko.html">JR東海「そうだ 京都、行こう。」風ポスター風画像を作る('24.06.03)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240604_music21_music_cipher.html">楽譜暗号を書いてみる('24.06.04)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240605_graph_naniwa.html">『なには八ツ橋智恵の渡り』で橋渡り('24.06.05)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240606_graphx_naniwa.html">『なにわ十六橋智恵の渡り』には「オイラー閉路」が存在する。('24.06.06)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240607_bible_pi.html">聖書(列王記, 歴代誌)で「円周率」を考える('24.06.07)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240608_pil_bangkok.html">街風景に「明朝体」を書き入れて「何かが起きた」世界系風景を撮影しよう('24.06.08)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240609_folium_osaka.html">浪華（なには）の町境界で「二面町」を眺める('24.06.09)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240610_sanpou_pi.html">「算法少女（1775年 壺中隠者版）」掲載の円周率計算をしてみる('24.06.10)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240611_music21_tritone.html">ブラームスの恋旋律を生み出した「悪魔の全三音」を聴いてみる('24.06.11)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240612_ephem_kyoto.html">平安貴族の始業時間が早朝６時半！というミスリード('24.06.12)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240613_osmnx_tanabata.html">天野川を渡って、牽牛は織姫に会いに行く('24.06.13)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../day_240614_opencv_dryellow.html">走り去るドクターイエローを決勝写真撮影カメラで記録する('24.06.14)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/hirax/wow/main?urlpath=tree/html/jupyter_execute/day_240607_bible_pi.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/hirax/wow/blob/main/html/jupyter_execute/day_240607_bible_pi.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/hirax/wow" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="ソースリポジトリ"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/hirax/wow/issues/new?title=Issue%20on%20page%20%2Fjupyter_execute/day_240607_bible_pi.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="問題を報告"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/jupyter_execute/day_240607_bible_pi.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>聖書(列王記, 歴代誌)で「円周率」を考える('24.06.07)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">100世代を超えて議論されてきた聖書の円周率問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">聖書に暗に登場する「円周率は約3」という描写</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">ヘブライ語の原典を踏まえると3.1415…が書かれてる？</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>聖書(列王記, 歴代誌)で「円周率」を考える('24.06.07)<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<section id="id2">
+<h2>100世代を超えて議論されてきた聖書の円周率問題<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>聖書には、円周率が暗に登場していて、これまで2千年くらいは議論されてきた。
+親と子の世代差を「1世代」として、それがおよそ20年とすれば、2千年は100世代に相当する。
+つまり、親と子が入れ替わる周期を基準にして、100回くらいも議論されてきたのが、聖書に登場する円周率問題だ。</p>
+<p>聖書の<a class="reference external" href="https://www.wordproject.org/bibles/jp/11/7.htm#0">列王記第一7章</a>、あるいは、<a class="reference external" href="https://www.wordproject.org/bibles/jp/14/4.htm#0">歴代誌第二4章</a>には、こんな形で円周率が登場する。</p>
+<div class="admonition-https-www-wordproject-org-bibles-jp-11-7-htm-0 admonition">
+<p class="admonition-title"><a class="reference external" href="https://www.wordproject.org/bibles/jp/11/7.htm#0">列王記第一7章</a></p>
+<p>また海を鋳て造った。縁から縁まで十キュビトであって、周囲は円形をなし、高さ五キュビトで、その周囲は綱をもって測ると三十キュビトであった。その縁の下には三十キュビトの周囲をめぐるひさごがあって、海の周囲を囲んでいた。そのひさごは二並びで、海を鋳る時に鋳たものである。その海は十二の牛の上に置かれ、その三つは北に向かい、三つは西に向かい、三つは南に向かい、三つは東に向かっていた。海はその上に置かれ、牛のうしろは皆内に向かっていた。海の厚さは手の幅で、その縁は杯の縁のように、ゆりの花に似せて造られた。海には水が二千バテはいった。</p>
+<p>列王記第一7章</p>
+</div>
+<div class="admonition-https-www-wordproject-org-bibles-jp-14-4-htm-0 admonition">
+<p class="admonition-title"><a class="reference external" href="https://www.wordproject.org/bibles/jp/14/4.htm#0">歴代誌第二4章</a></p>
+<p>ソロモンはまた青銅の祭壇を造った。その長さ二十キュビト、幅二十キュビト、高さ十キュビトである。彼はまた海を鋳て造った。縁から縁まで十キュビトであって、周囲は円形をなし、高さ五キュビトで、その周囲は綱をもって測ると三十キュビトあった。海の下には三十キュビトの周囲をめぐるひさごの形があって、海の周囲を囲んでいた。そのひさごは二並びで、海を鋳る時に鋳たものである。その海は十二の牛の上に置かれ、その三つは北に向かい、三つは西に向かい、三つは南に向かい、三つは東に向かっていた。海はその上に置かれ、牛のうしろはみな内に向かっていた。海の厚さは手の幅で、その縁は杯の縁のように、ゆりの花に似せて造られた。海には水を三千バテ入れることができた。</p>
+<p>歴代誌第二4章</p>
+</div>
+<p><a class="reference external" href="https://www.wordproject.org/bibles/jp/11/7.htm#0">列王記第一7章</a>あるいは<a class="reference external" href="https://www.wordproject.org/bibles/jp/14/4.htm#0">歴代誌第二4章</a>に登場するのは、単位を無視すれば直径が10で円周が30、そして高さが5の「海」と呼ばれる鋳造された<a class="reference external" href="https://en.wikipedia.org/wiki/Molten_Sea">円筒形の容器</a>だ。</p>
+<figure class="align-default">
+<img alt="jupyter_execute/images/day_240607_bible_pi_Brazen_Sea_of_soloman_From_Jewish_Encyclopedia.jpg" src="jupyter_execute/images/day_240607_bible_pi_Brazen_Sea_of_soloman_From_Jewish_Encyclopedia.jpg" />
+</figure>
+</section>
+<section id="id3">
+<h2>聖書に暗に登場する「円周率は約3」という描写<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<p>直径が<span class="math notranslate nohighlight">\(r\)</span>なら円周は<span class="math notranslate nohighlight">\(\pi r\)</span>だ。
+つまり、<span class="math notranslate nohighlight">\(\pi=円周/直径\)</span>だ。
+「直径が10で円周が30」ならば、下記のように単純に割り算をしてみれば、
+<span class="math notranslate nohighlight">\(\pi=3\)</span>ということになる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pi=&#39;</span><span class="p">,</span><span class="mi">30</span><span class="o">//</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># /を使うと浮動小数点演算が行われる https://qiita.com/toKoinX/items/032316ca77e28b80c142</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pi= 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>もちろん、円周率は3ではない。
+聖書の列王記や歴代誌が作成されたのは、紀元前数百年前。
+その千数百年以上前からたとえば、古代バビロニアの時代から、円周率が3.1…という数字であることはわかっていた。
+試しに<a class="reference external" href="https://qiita.com/POPPIN_FRIENDS/items/7228644dcd20d59203a1">円を16角形に近似してみれば</a>、円周率が3.0614674589207183…より大きいことは、容易に確認できる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">pi_from_polygon_area</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">rad</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">area</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">rad</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span> <span class="c1"># 正N角形の面積</span>
+    <span class="k">return</span> <span class="n">area</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pi_from_polygon_area</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0614674589207183
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id4">
+<h2>ヘブライ語の原典を踏まえると3.1415…が書かれてる？<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>精度を要する数値計算の解説書ではないのだから、聖書に「円周率は大雑把には3」と暗に読める文章が書いてあっても別に、全く問題は無いようにも思う。
+けれど、世界を記述するテキストとしては大きな問題らしく、さまざまな議論が繰り広げられてきたようだ。
+たとえば、Isaac ElishakoffとElliot Pinesによる論文、<a class="reference external" href="https://en.wikipedia.org/wiki/Molten_Sea#cite_note-13">&quot;Do Scripture and Mathematics Agree on the Number π?&quot;</a>では、次のような考察がされている。</p>
+<figure class="align-default">
+<img alt="jupyter_execute/images/day_240607_bible_pi_bible.png" src="jupyter_execute/images/day_240607_bible_pi_bible.png" />
+</figure>
+<div class="admonition-do-scripture-and-mathematics-agree-on-the-number-https-en-wikipedia-org-wiki-molten-sea-cite-note-13 admonition">
+<p class="admonition-title"><a class="reference external" href="https://en.wikipedia.org/wiki/Molten_Sea#cite_note-13">&quot;Do Scripture and Mathematics Agree on the Number π?&quot;</a></p>
+<p>ヘブライ語聖書の列王記第一7章と、歴代誌第二4章では、円周長が30という<a class="reference external" href="https://en.wikipedia.org/wiki/Molten_Sea#">説明文で使われる言葉が違って</a>いて、列王記で使われているのは קוה で、歴代誌で使われているのは קו だ。
+このふたつの語句は、書き文字としては異なるが、言葉にすると同じ発音になる。
+そして、ヘブライ語では文字が数字を表してもいたので、このふたつの文字を数字にすると、それぞれ、111(=100+6+5)と106(=100+6)になる。
+さらに、古今東西、さまざま行われてきた聖書解釈を踏まえて、聖書に書かれた「約3」の円周率に111/106を掛けるべきなのだ。</p>
+</div>
+<p>それでは、聖書から導かれる円周率約3に、111(=100+6+5)と106(=100+6)の比をどうなるだろう？
+……計算してみると、こんな結果が得られる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="mi">100</span><span class="o">+</span><span class="mi">6</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">100</span><span class="o">+</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141509433962264
+</pre></div>
+</div>
+</div>
+</div>
+<p>聖書には「口から発する言葉にすれば円周率は約3となるが、書き残された言葉としては、奥深い真実の世界も描かれていた」というのが、論文を書いた彼らが導き出した答えだ。
+ちなみに、彼らは、111(=100+6+5)と106(=106+6)による<span class="math notranslate nohighlight">\(\pi\)</span>表現は、情報理論を用いた符号化効率の計算結果から、偶然現れたものではなくて神の霊感による必然だと主張する。</p>
+<p>……何を信じるか信じないかは、あなた次第。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "hirax/wow",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "jupyter-book-py311"
+        },
+        kernelOptions: {
+            name: "jupyter-book-py311",
+            path: "./jupyter_execute"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'jupyter-book-py311'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">100世代を超えて議論されてきた聖書の円周率問題</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">聖書に暗に登場する「円周率は約3」という描写</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">ヘブライ語の原典を踏まえると3.1415…が書かれてる？</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 平林 純(Jun Hirabayashi)  twitter @hirax
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
